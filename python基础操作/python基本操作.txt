@@ -1,0 +1,1734 @@
+json格式化字典
+
+
+import json
+dic = {'code': 200, 'msg': '????', 'data':{"xxxxx:11111"} }
+a = json.dumps(dic, indent=4,ensure_ascii=False,sort_keys=False,separators=(',',':'))
+print(a)
+
+----------------------------------------------------------------------------------------------------------------------------------------------------------------
+
+
+import os
+import shutil
+
+
+# 生成文件夹
+def tp(tp=None):
+    os.makedirs("C:\\Users\\9000\\Desktop\\【新增】金惠家代偿凭证信息提取\\2866\\trade\\"+tp)#自己电脑的路径
+# 删除文件夹
+
+# os.remove(path)  # path是文件的路径，如果这个路径是一个文件夹，则会抛出OSError的错误，这时需用用rmdir()来删除
+# os.rmdir(path)  # path是文件夹路径，注意文件夹需要时空的才能被删除
+# os.unlink('F:\新建文本文档.txt')  # unlink的功能和remove一样是删除一个文件，但是删除一个删除一个正在使用的文件会报错。
+shutil.rmtree("C:\\Users\\9000\\Desktop\\asd")# 文件路径
+
+
+----------------------------------------------------------------------------------------------------------------------------------------------------------------
+
+
+'''删除所有jpg后缀的文件'''
+path = r'C:\Users\9000\Desktop\pdf'
+for i in os.listdir(path):
+    if i.find("jpg") != -1:
+        os.remove(os.path.join(path, i))
+
+
+----------------------------------------------------------------------------------------------------------------------------------------------------------------
+
+
+# 解压缩包
+import zipfile
+def unzip_file(zip_src, dst_dir):
+    # zip_src压缩包路径
+    # dst_dir解压后存放路径
+    r = zipfile.is_zipfile(zip_src)
+    if r:
+        fz = zipfile.ZipFile(zip_src, 'r')
+        for file in fz.namelist():
+            fz.extract(file, dst_dir)
+    else:
+        print('This is not zip')
+unzip_file(zip_src="C:\\Users\\9000\\Desktop\\555\\111.zip", dst_dir="C:\\Users\\9000\\Desktop\\123\\")
+
+
+----------------------------------------------------------------------------------------------------------------------------------------------------------------
+
+
+
+excel表的读写
+
+''' 读取excel表中的内容'''
+import openpyxl
+wb = openpyxl.load_workbook(r'C:\Users\9000\Desktop\工作簿.xlsx')
+sheers = wb.sheetnames    												# 拿到所有excel文件头
+sheets = sheers[0]        												# 确定要的excel第几个文件
+ws = wb[sheets]           												# 获取特定对的excel
+rows = ws.rows            												# 获取表格所有的行(可遍历)
+columns = ws.columns      												# 获取表格所有的列(可遍历)
+for row in rows:														# 循环读取行字段
+    line = [col.value for col in row]
+    print(line)
+print("-"*50)
+for colum in columns:													# 循环读取列字段
+    line1 = [col.value for col in colum]
+    print(line1)
+print("-"*50)
+print(ws['A1'].value, ws['B1'].value, ws['C1'].value)           		# 通过定位打印特定的位置字段
+
+----------------------------------------------------------------------------------------------------------------------------------------------------------------
+
+''' 写excel文件'''
+from openpyxl import Workbook
+from openpyxl.utils import get_column_letter
+
+wb = Workbook()
+ws = wb.active
+ws.cell(row=1, column=1).value = '张三'   								# 通过行和列的绝对位置添加字段
+ws['B1'].value = '李四'                   								# 通过列的相对位置添加字段
+for row in range(2, 11):                 								# 循环插入字段
+    for col in range(1, 11):
+        ws.cell(row=row, column=col).value = get_column_letter(col)
+
+wb.save(r'C:\Users\9000\Desktop\工作簿1.xlsx')
+print('ok')
+
+----------------------------------------------------------------------------------------------------------------------------------------------------------------
+
+#   提取word内容
+import docx
+from docx import Document
+
+doc_file = r"C:\Users\9000\Desktop\1-阿不都外力·尼亚孜-650105197706131310-补充保全申请书.docx"
+document = Document(doc_file)
+------------------------------------------------------------------
+# tables = document.tables  # 有表格的
+# print(tables)
+------------------------------------------------------------------
+a = str(len(document.paragraphs))   # 获取段落数
+for oara in document.paragraphs:    # 获取每一段的内容
+    print(oara.text)
+
+for i in range(len(document.paragraphs)):    # 获取第i段的文本内容
+    print("第"+str(i)+"段的内容是："+document.paragraphs[i].text)
+
+----------------------------------------------------------------------------------------------------------------------------------------------------------------
+
+# word替换添加内容
+from docx import Document
+from docx.shared import Inches
+
+def center_insert_img(doc, img):
+    """插入图片"""
+    for paragraph in doc.paragraphs:
+        # 根据文档中的占位符定位图片插入的位置
+        if '<<img1>>' in paragraph.text:
+            # 把占位符去掉
+            paragraph.text = paragraph.text.replace('<<img1>>', '')
+            run = paragraph.add_run('')
+            run.add_break()
+            # 添加图片并指定大小
+            run.add_picture(img, width=Inches(6.2))
+
+
+def save_img_to_doc(img):
+    """把图片保存到doc文件中的指定位置"""
+    tpl_doc = 'reports/template.docx'
+    res_doc = 'reports/res/2022-03-11.docx'
+    # 打开模板文件
+    document = Document(tpl_doc)
+    # 插入图片居中
+    center_insert_img(document, img)
+    # 保存结果文件
+    document.save(res_doc)
+
+
+def main():
+    """主函数"""
+    img = 'imgs/chart.png'
+    save_img_to_doc(img)
+
+
+if __name__ == '__main__':
+    main()
+
+----------------------------------------------------------------------------------------------------------------------------------------------------------------
+
+
+
+
+
+#  提取pdf图片
+import pdfplumber
+import os
+list = []
+path = "C:\\Users\\9000\\Desktop\\【新增】金惠家代偿凭证信息提取\\2866\\trade\\tmp\\888591076369502208_1_signature.pdf"
+with pdfplumber.open(path)as pdf:
+    for i in pdf.pages:
+        i = str(i)
+        e = i[-2]
+        e = int(e)
+        e = e-1
+        print(e)
+        
+            second_pag = pdf.pages[e]
+            # print(second_pag)
+            action_Name = second_pag.extract_tables()[0]
+            # print(action_Name)
+            for age in action_Name:
+                actions_name = age
+                actions_age = actions_name[0]
+                actions_names = "".join(actions_age).replace("\n", "")
+                list.append(actions_names)
+                over_Name = actions_name[2]
+                list.append(over_Name)
+                money = actions_name[4]
+                list.append(money)
+                types = actions_name[5]
+                list.append(types)
+                time = actions_name[6]
+                times = "".join(time).replace("\n", "")
+                list.append(times)
+                # print(actions_names, over_Name, money, types, times)
+
+
+----------------------------------------------------------------------------------------------------------------------------------------------------------------
+
+
+# 打开文件夹，输出文件夹的文件名称
+import os
+path = os.listdir("C:\\Users\\9000\\Desktop\\【新增】金惠家代偿凭证信息提取\\2866\\trade\\tmp\\")
+print(path)
+----------------------------------------------------------------------------------------------------------------------------------------------------------------
+
+
+# 日期格式比较大小
+from datetime import datetime
+strftime = datetime.datetime.strptime("2017-11-02", "%Y-%m-%d")
+strftime2 = datetime.datetime.strptime("2017-01-04", "%Y-%m-%d")
+print(f"2017-11-02大于2017-01-04： {type(strftime)} ", strftime > strftime2)
+
+
+
+----------------------------------------------------------------------------------------------------------------------------------------------------------------
+
+
+
+
+
+# 公司用的
+先把要存的文件做成列表
+wb = Workbook()
+ws = wb.worksheets[0]
+ws.append(['申请编号', '被申请人', '案件状态', '被申请人身份证号'])   # 表头的内容
+for i in self.data:  # 遍历做成的列表
+	ws.append(i)
+_path = fr"{self.excel_save_path}\{str(time.time()).replace('.', '-')}结果.xlsx"      # 不用管照抄就好
+wb.save(_path)   # 保存
+logger.info("文件结果：" + _path)  # 打印日志
+
+logger.error(f"错误行{e.__traceback__.tb_lineno}")     输出报错行数
+
+
+----------------------------------------------------------------------------------------------------------------------------------------------------------------
+
+
+
+
+git提交：    https://help.aliyun.com/document_detail/153802.html
+下拉数据                                                                   			git clone 地址
+查看当前管理的文件夹中所有文件和文件夹的状态     									git status
+管理单独的文件夹                                                     				git add supercrm
+管理所有文件和文件夹                                              					git add .  
+添加备注                                                                  			git commit -m "xxxx"
+查看git所管理的所有版本                                         					git log
+执行git回滚操作                                                       				git reset --hard 版本号
+将文件从以修改的工作区回滚到未修改的状态           									git checkout -- 文件名  
+让他回到工作去，并且还保持着修改后的状态           									git reset HEAD 文件名
+查看当前分支                                                           				git branch    
+创建一个名为dev的分支                                           					git branch dev
+将工作切换到dev分支上                                           					git checkout dev
+分支合并---首先切换到master分支，然后在master分支上执行merge指令来合并bug分支的代码                        git branch master        git merge bug
+删除bug分支                                                            				git branch -d bug
+拉取origin这个名字对应的远程仓库地址的那个仓库里面的dev分支上的代码拉取下来         git pull origin dev
+
+上传代码
+1. 给远程仓库起名                                                    				git remote add origin 远程仓库地址
+2. 向远程推送代码                                                    				git push -u origin 分支
+
+在新电脑上第一次获取代码
+1. 克隆远程仓库代码
+    git clone 远程仓库地址(内部已实现git remote add origin 远程仓库地址)
+2. 切换分支
+    git checkout 分支
+1. 切换到dev分支进行开发                                       						git checkout dev
+2. 把master分支合并到dev(仅一次)                          							git merge master
+3. 修改代码
+4. 提交代码
+    git add .
+    git commit -m 'xx'
+    git push origin dev
+
+回老电脑上继续写代码
+1. 切换到dev分支进行开发
+    git checkout dev
+2. 拉代码
+    git pull origin dev
+3. 继续开发
+4. 提交代码
+    git add .
+    git commit -m 'xx'
+    git push origin dev
+git add暂存区(临时存储)—git commit本地库(历史版本)
+
+----------------------------------------------------------------------------------------------------------------------------------------------------------------
+
+
+
+函数
+
+os.path.abspath(path)															# 返回绝对路径
+os.path.basename(path)															# 返回文件名
+os.path.commonprefix(list)														# 返回list(多个路径)中，所有path共有的最长的路径
+os.path.dirname(path)															# 返回文件路径
+os.path.exists(path)															# 路径存在则返回True,路径损坏返回False
+os.path.lexists																	# 路径存在则返回True,路径损坏也返回True
+os.path.expanduser(path)														# 把path中包含的"~"和"~user"转换成用户目录
+os.path.expandvars(path)														# 根据环境变量的值替换path中包含的"$name"和"${name}"
+os.path.getatime(path)															# 返回最近访问时间（浮点型秒数）
+os.path.getmtime(path)															# 返回最近文件修改时间
+os.path.getctime(path)															# 返回文件 path 创建时间
+os.path.getsize(path)															# 返回文件大小，如果文件不存在就返回错误
+os.path.isabs(path)																# 判断是否为绝对路径
+os.path.isfile(path)															# 判断路径是否为文件
+os.path.isdir(path)																# 判断路径是否为目录
+os.path.islink(path)															# 判断路径是否为链接
+os.path.ismount(path)															# 判断路径是否为挂载点
+os.path.join(path1[, path2[, ...]])												# 把目录和文件名合成一个路径
+os.path.normcase(path)															# 转换path的大小写和斜杠
+os.path.normpath(path)															# 规范path字符串形式
+os.path.realpath(path)															# 返回path的真实路径
+os.path.relpath(path[, start])													# 从start开始计算相对路径
+os.path.samefile(path1, path2)													# 判断目录或文件是否相同
+os.path.sameopenfile(fp1, fp2)													# 判断fp1和fp2是否指向同一文件
+os.path.samestat(stat1, stat2)													# 判断stat tuple stat1和stat2是否指向同一个文件
+os.path.split(path)																# 把路径分割成 dirname 和 basename，返回一个元组
+os.path.splitdrive(path)														# 一般用在 windows 下，返回驱动器名和路径组成的元组
+os.path.splitext(path)															# 分割路径中的文件名与拓展名
+os.path.splitunc(path)															# 把路径分割为加载点与文件
+os.path.walk(path, visit, arg)											# 遍历path，进入每个目录都调用visit函数，visit函数必须有3个参数(arg, dirname, names)，dirname表示当前目录的目录名，names代表当前目录下的所有文件名，args则为walk的第三个参数
+os.path.supports_unicode_filenames												# 设置是否支持unicode路径名
+issubclass()																	# 方法用于判断参数 class 是否是类型参数 classinfo 的子类。
+isinstance()																	# 函数来判断一个对象是否是一个已知的类型，类似 type()。
+time.strptime(str,fmt='%a %b %d %H:%M:%S %Y')									# 根据fmt的格式把一个时间字符串解析为时间元组。
+os.getcwd()																		# 输出当前进程的工作目录
+os.listdir() 																	# 方法用于返回指定的文件夹包含的文件或文件夹的名字的列表。
+os.chdir()																		# 改变当前工作目录到指定路径
+spec_from_file_location															# 函数，将会返回模块的说明
+module_from_spec																# 函数，它会返回引入的模块
+importlib.util.spec_from_file_location（ ，）									# 使用util通过模块名和文件路径来引入一个模块
+importlib.util.module_from_spec（）												# 返回引入的模块
+sys.path.append(r'xxx/xxx/xxx') 												# import 导入模块可以按指定路径导入
+super（）.__init__()   															# 继承父类初始化方法
+super（x, y）.__init__()   														# 继承父类初始化方法，且要求y为x的子类
+super（type, obj）.__init__()   												# 。。。。。。 ， 要求obj的类型是type或者其子类
+endswith()																# 用于判断字符串是否以指定后缀结尾，如果是返回True，否则返回False。"start"与"end"检索字符串的开始与结束位置。
+shutil.copyfule(file1, file2)													# 复制file1（旧地址）到file2（新地址）中
+shutil.copytree(old_path, new_path)										# 复制file1_path（旧地址）到file2_path（新地址）中
+new_path的路径末尾必须要加上粘贴后新的文件夹名，且执行前Test文件夹底下不能有data文件夹，不然会报错提示已经存在data文件夹。
+os.mkdir(path, mode)															# 以数字创建文件夹， path：路径， mode：文件夹以数字为名
+shuit.rmtree()																	# 删除文化夹（无论文件夹中有没有文件）
+pickle.dumps(x)																	# 将python对象转为二进制对象
+pickle.loads(x)																	# 将二进制对象转为python对象
+pickle.dump(x, y)														# 将python对象转换成二进制文本（前提是需要先创建一个文本用来保存二进制文件， x为要转换的文本， y为文本的名称）
+pickle.load(x)  																# 将二进制文本转换为python文本（前提书先需要一个二进制文本对象） 
+
+
+----------------------------------------------------------------------------------------------------------------------------------------------------------------
+
+
+
+
+
+selenium
+
+from selenium.webdriver.common.by import By     								# 导入这个包后才能用find_element(By.XPATH)
+
+driver = webdriver.Chrome('drivers/chromedriver.exe')    						# 导入谷歌引擎
+driver.get("")                                                                  # 输入要运行的网址
+driver.maximize_window()                                                 		# 窗口最大化
+iframe = driver.find_element(By.XPATH,"xxx")                  					# 用xpath方法找到iframe        也可以用别的方法
+driver.switch_to.frame(iframe)                                           		# 并且定位到iframe
+driver.switch_to.default_content()                                      		# 关闭定位，回到主页
+driver.implicitly_wait(10)                                                   	# 隐式等待（一次找不到，等一会儿再来找）
+driver.switch_to.window(driver.window_handles[1])    *****    b.switch_to_window_by_title(title='xxx（页面title）')    #  selenium跳转页面绷定新页面（后一种是公司自己封装的方法）
+print(driver.switch_to.alert.text)  											# 获取弹窗的文本信息
+driver.switch_to.alert.accept()  												# 点击弹窗确定
+driver.switch_to.alert.dismiss()  												# 点击弹窗取消
+driver.switch_to.alert.send_keys('xxxx') 										# 向弹窗中输入信息
+driver.switch_to.window(driver.window_handles[1])								# 切换页面
+dc = driver.find_element(By.XPATH, 'xxx').text 									# 获取文本内容
+driver.execute_script('window.scrollTo(0, 2000)')								# 拉动滚动条到指定位置
+win32api.mouse_event(win32con.MOUSEEVENTF_WHEEL,0,0,-400)                       # 模拟鼠标滑轮滚动（'-'为向下，'+'为向上）
+Keys对象导入：from selenium.webdriver.common.keys import Keys          
+删除键（BackSpace）
+send_keys(Keys.BACKSPACE)
+空格键(Space)
+send_keys(Keys.SPACE)
+制表键(Tab)
+send_keys(Keys.TAB)
+回退键（Esc）
+send_keys(Keys.ESCAPE)
+回车键（Enter）
+send_keys(Keys.ENTER)
+全选（Ctrl+A）
+send_keys(Keys.CONTROL,'a')
+复制（Ctrl+C）
+send_keys(Keys.CONTROL,'c')
+剪切（Ctrl+X）
+send_keys(Keys.CONTROL,'x')
+粘贴（Ctrl+V）
+send_keys(Keys.CONTROL,'v')
+键盘 F1
+send_keys(Keys.F1)
+键盘 F12
+send_keys(Keys.F12)
+find_element_by_linx_text()														# 文字超链接，文字定位
+find_element_by_partial_link_text() 											# 文字超链接，部分文字定位
+from selenium.webdriver import ActionChains  动作链
+
+click(on_element=None) 															# 单击鼠标左键
+click_and_hold(on_element=None) 												# 点击鼠标左键，不松开
+context_click(on_element=None) 													# 点击鼠标右键
+double_click(on_element=None) 													# 双击鼠标左键
+drag_and_drop(source, target) 													# 拖拽到某个元素然后松开
+drag_and_drop_by_offset(source, xoffset, yoffset) 								# 拖拽到某个坐标然后松开
+key_down(value, element=None) 													# 按下某个键盘上的键
+key_up(value, element=None) 													# 松开某个键
+move_by_offset(xoffset, yoffset) 												# 鼠标从当前位置移动到某个坐标
+move_to_element(to_element) 													# 鼠标移动到某个元素
+move_to_element_with_offset(to_element, xoffset, yoffset) 						# 移动到距某个元素（左上角坐标）多少距离的位置
+perform() 																		# 执行链中的所有动作
+release(on_element=None) 														# 在某个元素位置松开鼠标左键
+send_keys(*keys_to_send) 														# 发送某个键到当前焦点的元素
+send_keys_to_element(element, *keys_to_send) 									# 发送某个键到指定元素
+eg：ActionChains(driver).context_click(操作对象).perform()
+driver.back()  																	# 网页后退
+driver.forward() 																# 网页前进
+driver.refresh()																# 网页刷新
+
+js点击
+ele=driver.find_element_by_id("123")
+driver.execute_script("arguments[0].click()",ele)								# js点击
+
+
+//div[@class="el-select-dropdown el-popper" and contains(@style, "position")]//....        # 如果div里有el-popper 并且@style里边有position
+
+//self.driver.execute_script(document.querySelector('[name="ajxx.CAjsj"]').value="xxx")		#  向name是ajxx.CAjsj里输入“xxx”
+// document.getElementById('subcity').value="上城区"										#  选择id为subcity的select下拉框中选择“上城区”
+
+
+setTimeout(function(){debugger}, 3000)        									# 进入前端页面调试
+
+
+
+
+
+
+----------------------------------------------------------------------------------------------------------------------------------------------------------------
+
+
+
+
+
+airtest
+
+
+# -*- encoding=utf8 -*-
+__author__ = "9000"
+from airtest.core.api import *
+from selenium import webdriver
+from selenium.webdriver.common.keys import Keys
+from airtest_selenium.proxy import WebChrome
+
+driver = WebChrome()
+driver.implicitly_wait(5)
+driver.get("https://www.百度.com/")
+driver.maximize_window()   														# 最大化窗口
+driver.airtest_touch(Template(r'oldentrancetwo.png'))  # 点击选中的图片r          注释（需要将要选中的图片截屏，放到代码包下）
+driver.switch_to_new_tab()  													# 切换页面
+
+
+
+----------------------------------------------------------------------------------------------------------------------------------------------------------------
+
+pyautogui
+
+# 获取当前屏幕分辨率
+screenWidth, screenHeight = pyautogui.size()
+
+# 获取当前鼠标位置
+currentMouseX, currentMouseY = pyautogui.position()
+
+# 2秒钟鼠标移动坐标为100,100位置  绝对移动
+#pyautogui.moveTo(100, 100,2)
+pyautogui.moveTo(x=100, y=100,duration=2, tween=pyautogui.linear)
+
+#鼠标移到屏幕中央。
+pyautogui.moveTo(screenWidth / 2, screenHeight / 2)
+
+# 鼠标左击一次
+#pyautogui.click()
+# x 
+# y 
+# clicks 点击次数
+# interval点击之间的间隔
+# button 'left', 'middle', 'right' 对应鼠标 左 中 右或者取值(1, 2, or 3)
+# tween 渐变函数
+pyautogui.click(x=None, y=None, clicks=1, interval=0.0, button='left', duration=0.0, tween=pyautogui.linear)
+
+# 鼠标相对移动 ,向下移动
+#pyautogui.moveRel(None, 10)
+pyautogui.moveRel(xOffset=None, yOffset=10,duration=0.0, tween=pyautogui.linear)
+
+
+# 鼠标当前位置0间隔双击
+#pyautogui.doubleClick()
+pyautogui.doubleClick(x=None, y=None, interval=0.0, button='left', duration=0.0, tween=pyautogui.linear)
+
+# 鼠标当前位置3击
+#pyautogui.tripleClick()
+pyautogui.tripleClick(x=None, y=None, interval=0.0, button='left', duration=0.0, tween=pyautogui.linear)
+
+#右击
+pyautogui.rightClick()
+
+#中击
+pyautogui.middleClick()
+
+#  用缓动/渐变函数让鼠标2秒后移动到(500,500)位置
+#  use tweening/easing function to move mouse over 2 seconds.
+pyautogui.moveTo(x=500, y=500, duration=2, tween=pyautogui.easeInOutQuad)
+
+#鼠标拖拽
+pyautogui.dragTo(x=427, y=535, duration=3,button='left')
+
+#鼠标相对拖拽
+pyautogui.dragRel(xOffset=100,yOffset=100,duration=,button='left',mouseDownUp=False)
+
+#鼠标移动到x=1796, y=778位置按下
+pyautogui.mouseDown(x=1796, y=778, button='left')
+
+#鼠标移动到x=2745, y=778位置松开（与mouseDown组合使用选中）
+pyautogui.mouseUp(x=2745, y=778, button='left',duration=5)
+
+#鼠标当前位置滚轮滚动
+pyautogui.scroll()
+#鼠标水平滚动（Linux）
+pyautogui.hscroll()
+#鼠标左右滚动（Linux）
+pyautogui.vscroll()
+
+#模拟输入信息
+pyautogui.typewrite(message='Hello world!',interval=0.5)
+#点击ESC
+pyautogui.press('esc')
+# 按住shift键
+pyautogui.keyDown('shift')
+# 放开shift键
+pyautogui.keyUp('shift')
+# 模拟组合热键
+pyautogui.hotkey('ctrl', 'c')
+
+# 整个屏幕截屏并保存
+im1 = pyautogui.screenshot()
+im1.save('my_screenshot.png')
+或者
+im2 = pyautogui.screenshot('my_screenshot2.png')
+
+# 屏幕查找图片位置并获取中间点
+#在当前屏幕中查找指定图片(图片需要由系统截图功能截取的图)
+coords = pyautogui.locateOnScreen('folder.png')
+#获取定位到的图中间点坐标
+x,y=pyautogui.center(coords)
+#右击该坐标点
+pyautogui.rightClick(x,y)
+
+#保护措施，避免失控
+pyautogui.FAILSAFE = True
+#为所有的PyAutoGUI函数增加延迟。默认延迟时间是0.1秒。
+pyautogui.PAUSE = 0.5
+
+
+----------------------------------------------------------------------------------------------------------------------------------------------------------------
+
+jupyter_notebook 调试
+
+1. 新建一个文件夹 ——>2.把rpalibe拖入——>3.拖入浏览器驱动 
+——>4.在文件夹中按shift点击鼠标右键，选择shell模式
+——>5.输入jupyter notebook——>6.在files中点击右上角的new，并选择python3
+
+
+升级pip不成功 报t64错误
+卸载setuptools： python -m pip uninstall pip setuptools
+然后安装setuptools： pip install --upgrade setuptools
+
+
+----------------------------------------------------------------------------------------------------------------------------------------------------------------
+
+
+数字图书馆基本所有的书都能找到 https://zh.sa1lib.org/  打不开 有手机版
+动态横向柱状图：https://github.com/Jannchie/Historical-ranking-data-visualization-based-on-d3.js
+解决bug的网站：https://stackoverflow.com/
+了解新技术：https://segmentfault.com/
+可视化学习数据结构与算法：https://visualgo.net/zh
+设计模式学习：https://refactoring.guru/design-patterns/catalog
+SQL在线练习网站：https://sqlzoo.net/wiki/SELECT_basics/zh
+刷题网站：https://leetcode-cn.com/   
+          https://www.nowcoder.com/
+自动生成请求代码网址：https://curlconverter.com/#
+寻代理 http://www.xdaili.cn/
+
+
+----------------------------------------------------------------------------------------------------------------------------------------------------------------
+
+
+
+通过接口传数据：
+eg：
+ def danbao_create(self):
+		''' 找到接口要的数据，记得传的参数要和接口保持一致'''
+        data1 = {
+            "jbxxs": [{
+                'cDbfs': "2",
+                'cDbr': f"{self.item.insurance}",
+                'cDbsm': "",
+                'cDbwmc': f"{self.item.guaranty}",
+                'isAdd': True,
+                'nDbjz': f"{self.item.amount}"
+            }]}
+        time.sleep(3)
+		''' 找到接口链接'''
+        save_url = f'https://baoquan.court.gov.cn/wsbq/ssbq/api/dbxx?time={int(time.time() * 1000)}&bqid={self.caseId}&isFirst=true'
+		''' 用post请求向服务端传输数据'''
+        r = self.request(save_url, data=data1, method="post")
+        if str(r.status_code) == "200":
+            print('r------------------->', r.text)
+            logger.info(f"{self.item.insurance}保全基本信息保存完成")
+			
+			
+----------------------------------------------------------------------------------------------------------------------------------------------------------------
+
+正则表达式
+			
+import re
+
+
+line = "Cats are smarter than dogs"
+
+
+''' re.match()'''
+matchObj = re.match(r'(.*) are (.*?) .*', line, re.M | re.I)
+if matchObj:
+    print("matchObj.group() : ", matchObj.group())
+    print("matchObj.group(1) : ", matchObj.group(1))
+    print("matchObj.group(2) : ", matchObj.group(2))
+else:
+    print("No match!!")
+
+
+''' re.search'''
+matchObj = re.search(r'(.*) are (.*?) .*', line, re.M | re.I)
+if matchObj:
+    print("matchObj.group() : ", matchObj.group())
+    print("matchObj.group(1) : ", matchObj.group(1))
+    print("matchObj.group(2) : ", matchObj.group(2))
+else:
+    print("No match!!")
+#
+''' re.match只匹配字符串的开始，如果字符串开始不符合正则表达式，则匹配失败，函数返回None；而re.search匹配整个字符串，直到找到一个匹配'''
+matchObj = re.match(r'dogs', line, re.M | re.I)
+if matchObj:
+    print("match --> matchObj.group() : ", matchObj.group())
+else:
+    print("No match!!")
+
+matchObj = re.search(r'dogs', line, re.M | re.I)
+if matchObj:
+    print("search --> searchObj.group() : ", matchObj.group())
+else:
+    print("No match!!")
+
+
+''' re.sub用于替换字符串中的匹配项'''
+phone = "2004-959-559 # 这是一个国外电话号码"
+
+# 删除字符串中的 Python注释
+num = re.sub(r'#.*$', "", phone)
+print("电话号码是: ", num)
+
+# 删除非数字(-)的字符串
+num = re.sub(r'\D', "", phone)
+print("电话号码是 : ", num)
+
+
+# 将匹配的数字乘以 2
+def double(matched):
+    value = int(matched.group('value'))
+    return str(value * 2)
+s = 'A23G4HFD567'
+print(re.sub('(?P<value>\d+)', double, s))
+
+
+''' re.compile 用于编译正则表达式，生成一个正则表达式（ Pattern ）对象，供 match() 和 search() 这两个函数使用。'''
+
+pattern = re.compile(r'\d+')                    # 用于匹配至少一个数字
+m = pattern.match('one12twothree34four')        # 查找头部，没有匹配
+print(m)
+m = pattern.match('one12twothree34four', 2, 10) # 从'e'的位置开始匹配，没有匹配
+print(m)
+m = pattern.match('one12twothree34four', 3, 10) # 从'1'的位置开始匹配，正好匹配
+print(m)
+print(m.group(0))
+print(m.start(0))
+print(m.end(0))
+print(m.span(0))
+
+
+pattern = re.compile(r'([a-z]+) ([a-z]+)', re.I)   # re.I 表示忽略大小写
+m = pattern.match('Hello World Wide Web')
+print(m)                               # 匹配成功，返回一个 Match 对象
+
+print(m.group(0))                            # 返回匹配成功的整个子串
+print(m.span(0))                            # 返回匹配成功的整个子串的索引
+print(m.group(1))                           # 返回第一个分组匹配成功的子串
+print(m.span(1))                            # 返回第一个分组匹配成功的子串的索引
+print(m.group(2))                            # 返回第二个分组匹配成功的子串
+print(m.span(2))                            # 返回第二个分组匹配成功的子串
+print(m.groups())                            # 等价于 (m.group(1), m.group(2), ...)
+# print(m.group(3))                            # 不存在第三个分组
+
+''' re.fainall 查找所有匹配的字符串'''
+result = re.findall(r'(\w+)=(\d+)', 'set width=20 and height=10')
+print(result)
+
+pattern = re.compile(r'\d+')  # 查找数字
+result1 = pattern.findall('runoob 123 google 456')
+result2 = pattern.findall('run88oob123google456', 0, 10)
+print(result1)
+print(result2)
+
+''' re.finditer 查找所有匹配的字符串返回迭代器'''
+it = re.finditer(r"\d+", "12a32bc43jf3")
+for match in it:
+    print(match.group())
+
+''' re.split 按照能够匹配的子串将字符串分割后返回列表'''
+a = re.split('\W+', 'runoob, runoob, runoob.')
+print(a)
+b = re.split('(\W+)', ' runoob, runoob, runoob.')
+print(b)
+c = re.split('\W+', ' runoob, runoob, runoob.', 1)
+print(c)
+d = re.split('a*', 'hello world')  # 对于一个找不到匹配的字符串而言，split 不会对其作出分割
+print(d)
+
+
+''' 正则常用表达式'''
+re.I	    使匹配对大小写不敏感
+re.L	    做本地化识别（locale-aware）匹配
+re.M	    多行匹配，影响 ^ 和 $
+re.S	    使 . 匹配包括换行在内的所有字符
+re.U	    根据Unicode字符集解析字符。这个标志影响 \w, \W, \b, \B.
+re.X	    该标志通过给予你更灵活的格式以便你将正则表达式写得更易于理解。
+^	        匹配字符串的开头
+$	        匹配字符串的末尾。
+.	        匹配任意字符，除了换行符，当re.DOTALL标记被指定时，则可以匹配包括换行符的任意字符。
+[...]	    用来表示一组字符,单独列出：[amk] 匹配 'a'，'m'或'k'
+[^...]	不在[]中的字符：[^abc] 匹配除了a,b,c之外的字符。
+re*	    匹配0个或多个的表达式。
+re+	    匹配1个或多个的表达式。
+re?	    匹配0个或1个由前面的正则表达式定义的片段，非贪婪方式
+re{ n}	精确匹配 n 个前面表达式。例如， o{2} 不能匹配 "Bob" 中的 "o"，但是能匹配 "food" 中的两个 o。
+re{ n,}	匹配 n 个前面表达式。例如， o{2,} 不能匹配"Bob"中的"o"，但能匹配 "foooood"中的所有 o。"o{1,}" 等价于 "o+"。"o{0,}" 则等价于 "o*"。
+re{ n, m}	匹配 n 到 m 次由前面的正则表达式定义的片段，贪婪方式
+a| b	    匹配a或b
+(re)	    对正则表达式分组并记住匹配的文本
+(?imx)	正则表达式包含三种可选标志：i, m, 或 x 。只影响括号中的区域。
+(?-imx)	正则表达式关闭 i, m, 或 x 可选标志。只影响括号中的区域。
+(?: re)	类似 (...), 但是不表示一个组
+(?imx: re)	在括号中使用i, m, 或 x 可选标志
+(?-imx: re)	在括号中不使用i, m, 或 x 可选标志
+(?#...)	注释.
+(?= re)	前向肯定界定符。如果所含正则表达式，以 ... 表示，在当前位置成功匹配时成功，否则失败。但一旦所含表达式已经尝试，匹配引擎根本没有提高；模式的剩余部分还要尝试界定符的右边。
+(?! re)	前向否定界定符。与肯定界定符相反；当所含表达式不能在字符串当前位置匹配时成功
+(?> re)	匹配的独立模式，省去回溯。
+\w	    匹配字母数字及下划线
+\W	    匹配非字母数字及下划线
+\s	    匹配任意空白字符，等价于 [ \t\n\r\f]。
+\S	    匹配任意非空字符
+\d	    匹配任意数字，等价于 [0-9].
+\D	    匹配任意非数字
+\A	    匹配字符串开始
+\Z	    匹配字符串结束，如果是存在换行，只匹配到换行前的结束字符串。
+\z	    匹配字符串结束
+\G	    匹配最后匹配完成的位置。
+\b	    匹配一个单词边界，也就是指单词和空格间的位置。例如， 'er\b' 可以匹配"never" 中的 'er'，但不能匹配 "verb" 中的 'er'。
+\B	    匹配非单词边界。'er\B' 能匹配 "verb" 中的 'er'，但不能匹配 "never" 中的 'er'。
+\n, \t, 等.	匹配一个换行符。匹配一个制表符。等
+\1...\9	匹配第n个分组的内容。
+\10	    匹配第n个分组的内容，如果它经匹配。否则指的是八进制字符码的表达式。
+
+''' 字符匹配'''
+[Pp]ython	        匹配 "Python" 或 "python"
+rub[ye]	        匹配 "ruby" 或 "rube"
+[aeiou]	        匹配中括号内的任意一个字母
+[0-9]	            匹配任何数字。类似于 [0123456789]
+[a-z]	            匹配任何小写字母
+[A-Z]	            匹配任何大写字母
+[a-zA-Z0-9]	    匹配任何字母及数字
+[^aeiou]	        除了aeiou字母以外的所有字符
+[^0-9]	        匹配除了数字外的字符
+.	                匹配除 "\n" 之外的任何单个字符。要匹配包括 '\n' 在内的任何字符，请使用象 '[.\n]' 的模式。
+\d	            匹配一个数字字符。等价于 [0-9]。
+\D	            匹配一个非数字字符。等价于 [^0-9]。
+\s	            匹配任何空白字符，包括空格、制表符、换页符等等。等价于 [ \f\n\r\t\v]。
+\S	            匹配任何非空白字符。等价于 [^ \f\n\r\t\v]。
+\w	            匹配包括下划线的任何单词字符。等价于'[A-Za-z0-9_]'。
+\W	            匹配任何非单词字符。等价于 '[^A-Za-z0-9_]'。
+----------------------------------------------------------------------------------------------------------------------------------------------------------------
+
+注：   		【不可逆】
+''' md5加密'''
+import hashlib
+a = input("请输入加密：")
+x = hashlib.md5()
+x.update(a.encode(encoding='utf8'))
+print('加密前' + a)
+print('加密后' + x.hexdigest())
+----------------------------------------------------------------------------------------------------------------------------------------------------------------
+
+注：    	【可逆】
+''' base64加密'''
+import base64
+a = input("请输入加密字符：")
+b = base64.b64encode(a.encode('utf8'))
+c = base64.b64decode(b)
+print('加密后：' + b.decode())
+print('解密后：' + c.decode())
+----------------------------------------------------------------------------------------------------------------------------------------------------------------
+
+注：     	【不可逆】
+''' 哈希+sha256加密'''
+import hashlib
+s = hashlib.sha256()
+s.update(input("请输入加密字符：").encode('utf8'))
+b = s.hexdigest()
+print(b)
+
+----------------------------------------------------------------------------------------------------------------------------------------------------------------
+
+''' 图像识别'''
+import ddddocr
+
+ocr = ddddocr.DdddOcr()
+with open('oldentrancetwo.png', 'rb')as f:
+    img_bytes = f.read()
+res = ocr.classification(img_bytes)
+print(res)
+
+----------------------------------------------------------------------------------------------------------------------------------------------------------------
+
+***《打在线包》
+全部的：
+先把bulid里最下边改为fire.Fire(build(version="online（在线包）"))
+然后task文件中的class TaskScheduler(object):类中的__init__函数中的mode=‘thread’改为‘process’
+最后运行bulid 如果不要登录页面， 把old_static中的static替换掉刚打包的static就可以实现不要登录页面
+
+***《打离线包》
+bulid最下边fire.Fire(build(version="offline（离线包）",env="最上边env里边确定要打的文件"))
+task文件中的class TaskScheduler(object):类中的__init__函数中的mode=‘process’改为‘thread’
+最后运行bulid
+
+改版本号：
+在runtime下的_init_中第一个值为月份第二个值为年月日
+
+
+----------------------------------------------------------------------------------------------------------------------------------------------------------------
+*** 《添加环境》
+runtime----> load.py 文件夹下导入需要的包，然后重新打包即可
+
+
+
+
+
+
+
+''' 有趣的东西 '''
+python3中 ...可以代替pass
+向左补0：
+ a.rjust(6, '0')         # a为变量，6为长度，‘0’为向左补充的字符（a必须为字符串格式）
+ a.zfill(6)					# # a为变量，6为长度, 默认为0
+ 
+ 
+将安装的包写入required.txt文件: pip freeze > required.txt
+建立应用的命令：python manage.py startapp 应用名
+运行开发web服务器命令：python manage.py runserver
+生成迁移文件命令：python manage.py makemigrations
+执行迁移生成表命令：python mange.py migrate
+查看python中django的版本: python -m django --version
+建立管理员：python mange.py createsuperuser
+
+
+''' zip 内置函数的用法 '''
+
+one = [1, 2, 3]
+two = [4, 5, 6]
+three = [7, 8, 9]
+x = []
+x.append(one)
+x.append(two)
+x.append(three)
+for i in zip(*x):
+	a = list(i)
+	print(a)
+注：a的结果为
+[1, 4, 7]
+[2, 5, 8] 
+[3, 6, 9]
+
+
+
+
+''' reverse 内置函数的用法 '''
+a = ['123', 'qwe', 'asd', 'zxc']
+a.reverse()
+print(a)
+注：a的结果为
+['zxc', 'asd', 'qwe', '123']
+
+
+
+''' cmp 内置函数的用法 '''
+比较两个变量的大小
+a = 80
+b = 100
+cmp(a, b)
+如果a>b返回1
+如果a=b返回0
+如果a<b返回-1
+
+
+
+''' ord 返回字符ask码 '''
+
+
+''' isinstance 类似与type 不过isinstance会判断父类，比type更适合判断 '''
+
+
+''' bin() 转化为二进制 '''
+
+
+''' frozenset 返回一个冻结的集合，不可添加或删除元素 '''
+a = frozenset(range(10))
+
+
+''' repr '''
+s = "物品\t单价\t数量\n包子\t1\t2"
+print(s)
+print(repr(s))
+返回：
+物品	单价	数量
+包子	1	2
+'物品\t单价\t数量\n包子\t1\t2'
+
+
+''' hasattr 返回一个类里边是否有这个属性 '''
+class Coordinate:
+    x = 10
+    y = -5
+    z = 0
+ 
+point1 = Coordinate() 
+print(hasattr(point1, 'x'))
+print(hasattr(point1, 'y'))
+print(hasattr(point1, 'z'))
+print(hasattr(point1, 'no'))  # 没有该属性
+
+
+''' delattr 删除一个属性 '''
+class coo():
+    x = 10
+    y = 5
+    z = 1
+p = coo()
+delattr(coo, 'z')
+print('x = ', p.x)
+print('y = ', p.x)
+print('z = ', p.z)
+
+
+''' hex()转为16进制 '''
+
+
+''' oct()转为8进制 '''
+
+
+''' id()返回一个内存地址 '''
+
+
+''' sorted()对列表进行排序 '''
+a = [5, 6, 34, 3, 78, 9, 2, 1, 7]
+b = sorted(a)
+
+-----------------------------------------------------------------------------------------------------------------------------------------------
+ 
+python打包文件：
+先下载pyinstaller
+创建一个dist文件夹-----》创建一个ico格式的图片作为.exe的图片-------》把要打包的py文件放入build--------》输入pyinstaller -F -i ./photo.ico arrt.py   
+（photo.ico为生成exe的图片， arrt.py为打包的文件）
+
+-----------------------------------------------------------------------------------------------------------------------------------------------
+
+pywin32自动创建文本文档并写入内容
+
+save_path=r'C:\Users\9000\Desktop\栗子一.txt'     				# 用来保存的地址
+notepad_path = r'C:\Windows\notepad.exe'          				# 这个是记事本应用的路径
+win32api.ShellExecute(0, 'open', notepad_path, '', '', 1)     	# 打开这个记事本
+while True:
+	win = win32gui.FindWindow('Notepad', '')					# 返回这个进程的句柄
+	if win != 0:												# 如果win的返回值不等于0，说明程序已经被启动
+		win32api.sleep(200) 									# 让当前线程睡眠200s
+		print('启动成功'， win)
+		break
+edit_hnadle = win32gui.FindWindowEx(win, 0, 'Edit', None)       # 获得子窗口的句柄 win(目标窗口的父窗口)，0(目标窗口的子窗口)， ‘Edit’(目标窗口的类名)， ‘None’(目标窗口的窗口描述)
+win32gui.SendMessage(edit_hnadle, win32con.WM_SETTEXT, None, '我想睡觉')   # 向这个文本中写入文本  win32con.WM_SETTEXT(设置窗体的文本)， None(未使用默认就好)， ‘我想睡觉’(写入的文本)
+menu_handle = win32gui.GetMenu(win)								# 获取窗口的菜单句柄
+menu_handle = win32gui.GetSubMenu(menu_handle, 0)               # 获取菜单句柄中的下拉句柄
+com_ID = win32gui.GetMenuItemID(menu_handle, 3)					# 获得菜单项中的的标志符，注意，分隔符是被编入索引的   3为菜单句柄子菜单索引号
+win32gui.PostMessage(win, win32con.WM_COMMAND, com_ID, 0)       # 发送消息， 加入消息队列   win(句柄) win32_con.WM_COMMAND(消息类型) 
+
+
+-----------------------------------------------------------------------------------------------------------------------------------------------
+
+playwright：
+playwright codegen www.xxx.com
+录制视频然后复制代码
+
+
+
+-----------------------------------------------------------------------------------------------------------------------------------------------
+
+异步函数
+
+# 导入异步函数模块
+import asyncio
+
+# 创建一个阻塞函数
+async def run():
+	await asyncio.sleep(1)  # 异步等待1秒
+	a = input(str('xxxxx'))
+	print(a)
+	
+# 创建一个异步函数
+async def run1():
+	await asyncio.sleep(0.5)
+	b = 1
+	c = b + 1
+	print(c)
+
+# 运行主函数，同时运行这两个函数
+async def main():
+	x = [run(), run1()]
+	await asyncio.gather(*x)
+
+if __main__ == '__main__':
+	asyncio.run(main())
+
+python打包文件：
+先下载pyinstaller
+创建一个dist文件夹-----》创建一个ico格式的图片作为.exe的图片-------》把要打包的py文件放入build--------》输入pyinstaller -F -i ./photo.ico arrt.py   
+（photo.ico为生成exe的图片， arrt.py为打包的文件）
+
+
+-----------------------------------------------------------------------------------------------------------------------------------------------
+
+pandas 使用
+
+https://blog.csdn.net/yiyele/article/details/80605909
+
+
+df = pd.read_excel("表格地址")
+
+---------------
+数据表信息查看|
+---------------
+
+df.shape     # 返回这个excel表的行宽和列数
+df.info()     # 数据表基本信息
+df.dtypes    # 每一列数据的格式
+df['B'].dtype  # 某一列格式：
+df.isnull()   # 空值：
+df['B'].isnull()  # 查看某一列空值：
+df['B'].unique()  # 查看某一列的唯一值
+df.values     # 查看数据表的值
+df.columns    # 查看列名称：
+df.head()     # 默认前5行数据
+df.tail()     # 默认后5行数据
+
+-----------
+数据表清洗|
+-----------
+
+df.fillna(value=0)     # 用数字0填充空值
+df['prince'].fillna(df['prince'].mean())      # 清除city字段的字符空格：
+df['city']=df['city'].str.lower()      # 大小写转换
+df['price'].astype('int')     # 更改数据格式：
+df.rename(columns={'category': 'category-size'})        # 更改列名称
+df['city'].drop_duplicates()     # 删除后出现的重复值
+df['city'].drop_duplicates(keep='last')      # 删除先出现的重复值
+df['city'].replace('sh', 'shanghai')      # 数据替换
+
+-----------
+数据预处理|
+-----------
+
+df_inner=pd.merge(df,df1,how='inner')  # 匹配合并，将两张表不同的地方合并起来（横向合并）
+df_left=pd.merge(df,df1,how='left')        #
+df_right=pd.merge(df,df1,how='right')
+df_outer=pd.merge(df,df1,how='outer')  # 并集
+result = df.append(df1)    # 将两个表合并（纵向合并）
+result = left.join(right, on='key')   # 将两个表合并且是左表为主，右表和左表不同处被删除（纵向合并）
+
+
+pd.concat(objs, axis=0, join='outer', join_axes=None, ignore_index=False,
+	          keys=None, levels=None, names=None, verify_integrity=False,
+	          copy=True)
+objs︰ 一个序列或系列、 综合或面板对象的映射。如果字典中传递，将作为键参数，使用排序的键，除非它传递，在这种情况下的值将会选择
+（见下文）。任何没有任何反对将默默地被丢弃，除非他们都没有在这种情况下将引发 ValueError。
+axis: {0，1，…}，默认值为 0。要连接沿轴。
+join: {‘内部’、 ‘外’}，默认 ‘外’。如何处理其他 axis(es) 上的索引。联盟内、 外的交叉口。
+ignore_index︰ 布尔值、 默认 False。如果为 True，则不要串联轴上使用的索引值。由此产生的轴将标记
+0，…，n-1。这是有用的如果你串联串联轴没有有意义的索引信息的对象。请注意在联接中仍然受到尊重的其他轴上的索引值。
+join_axes︰ 索引对象的列表。具体的指标，用于其他 n-1 轴而不是执行内部/外部设置逻辑。 keys︰
+序列，默认为无。构建分层索引使用通过的键作为最外面的级别。如果多个级别获得通过，应包含元组。
+levels︰ 列表的序列，默认为无。具体水平 （唯一值） 用于构建多重。否则，他们将推断钥匙。
+names︰ 列表中，默认为无。由此产生的分层索引中的级的名称。
+verify_integrity︰ 布尔值、 默认 False。检查是否新的串联的轴包含重复项。这可以是相对于实际数据串联非常昂贵。
+副本︰ 布尔值、 默认 True。如果为 False，请不要，不必要地复制数据。
+
+			  
+			  
+			  
+例子：1.frames = [df1, df2, df3]
+          2.result = pd.concat(frames)   # 将df1,df2,df3一同合并
+
+
+df_inner.set_index('id')    # 设置索引列
+df_inner.sort_values(by=['age'])     # 按照特定列的值排序
+df_inner.sort_index()         # 按照索引列排序
+df_inner['group'] = np.where(df_inner['price'] > 3000,'high','low')      # 如果prince列的值>3000，group列显示high，否则显示low
+df_inner.loc[(df_inner['city'] == 'beijing') & (df_inner['price'] >= 4000), 'sign']=1      # 对复合多个条件的数据进行分组标记
+pd.DataFrame((x.split('-') for x in df_inner['category']),index=df_inner.index,columns=['category','size'])
+#	对category字段的值依次进行分列，并创建数据表，索引值为df_inner的索引列，列名称为category和size
+df_inner=pd.merge(df_inner,split,right_index=True, left_index=True)  # 将完成分裂后的数据表和原df_inner数据表进行匹配
+
+---------
+数据提取|
+---------
+df_inner.loc[3]     # 按索引提取单行的数值
+df_inner.iloc[0:5]    # 按索引提取区域行数值
+df_inner.reset_index()    # 重设索引
+df_inner=df_inner.set_index('date')   # 设置日期为索引
+df_inner[:'2013-01-04']				# 提取4日之前的所有数据
+df_inner.iloc[:3,:2] #冒号前后的数字不再是索引的标签名称，而是数据所在的位置，从0开始，前三行，前两列。
+df_inner.iloc[[0,2,5],[4,5]] #提取第0、2、5行，4、5列
+df_inner.ix[:'2013-01-03',:4] #2013-01-03号之前，前四列数据
+df_inner['city'].isin(['beijing'])     # 判断city列的值是否为北京
+df_inner.loc[df_inner['city'].isin(['beijing','shanghai'])]      # 判断city列里是否包含beijing和shanghai，然后将符合条件的数据提取出来
+pd.DataFrame(df_inner['category'].str[:3])    # 提取前三个字符，并生成数据表
+
+---------
+数据筛选|
+---------
+
+df_inner.loc[(df_inner['age'] > 25) & (df_inner['city'] == 'beijing'), ['id','city','age','category','gender']]      # 使用“与”进行筛选
+df_inner.loc[(df_inner['age'] > 25) | (df_inner['city'] == 'beijing'), ['id','city','age','category','gender']].sort(['age'])     # 使用“或”进行筛选
+df_inner.loc[(df_inner['city'] != 'beijing'), ['id','city','age','category','gender']].sort(['id'])       # 使用“非”条件进行筛选
+df_inner.loc[(df_inner['city'] != 'beijing'), ['id','city','age','category','gender']].sort(['id']).city.count()    # 对筛选后的数据按city列进行计数
+df_inner.query('city == ["beijing", "shanghai"]')     # 使用query函数进行筛选
+df_inner.query('city == ["beijing", "shanghai"]').price.sum()     # 对筛选后的结果按prince进行求和
+
+---------
+数据汇总|
+---------
+
+df_inner.groupby('city').count()    # 对所有的列进行计数汇总
+df_inner.groupby('city')['id'].count()     # 按城市对id字段进行计数
+df_inner.groupby(['city','size'])['id'].count()    # 对两个字段进行汇总计数
+df_inner.groupby('city')['price'].agg([len,np.sum, np.mean])      # 对city字段进行汇总，并分别计算prince的合计和均值
+
+---------
+数据统计|
+---------
+
+df_inner.sample(n=3)     # 简单的数据采样
+weights = [0, 0, 0, 0, 0.5, 0.5]
+df_inner.sample(n=2, weights=weights)   # 手动设置采样权重
+df_inner.sample(n=6, replace=False)     # 采样后不放回
+df_inner.sample(n=6, replace=True)      # 采样后放回
+df_inner.describe().round(2).T          # round函数设置显示小数位，T表示转置
+df_inner['price'].std()       # 计算列的标准差
+df_inner['price'].cov(df_inner['m-point'])       # 计算两个字段间的协方差
+df_inner.cov()       # 数据表中所有字段间的协方差
+df_inner['price'].corr(df_inner['m-point'])      #相关系数在-1到1之间，接近1为正相关，接近-1为负相关，0为不相关
+df_inner.corr()       # 数据表的相关性分析
+
+---------
+数据输出|
+---------
+
+df_inner.to_excel('excel_to_python.xlsx', sheet_name='bluewhale_cc')       # 写入Excel
+df_inner.to_csv('excel_to_python.csv')        # 写入到CSV
+
+
+
+import pandas as pd
+
+df = pd.read_excel("表格地址")     # 读取excel表中的内容
+g = df.drop_duplicates(subset = "身份证")   # 按着身份证的唯一性进行筛选
+for name in g.index:    # 返回所有的序列号
+	data = df.loc[name]    # 返回每一个excel信息
+	data = df.loc[name].to_dict  # 按照字典的格式返回
+	
+
+设置excel转pdf样式
+https://docs.microsoft.com/zh-cn/office/vba/api/excel.pagesetup.parent
+
+
+
+
+---------------------
+|输出python报错行数:|
+---------------------
+def error(e):
+    node = e.__traceback__
+    _list = []
+    while True:
+        if node is None:
+            break
+        _list.append(node)
+        node = node.tb_next
+    return f" line {_list[-1].tb_lineno} {repr(e)}"
+	
+	
+def run(self):
+	try:
+		self.fun1()
+	except Exception as e:
+		print(error(e))
+	
+
+
+
+
+
+
+---------
+|panadas|
+---------
+
+读取数据
+csv, tsv, txt    		使用pd.read_csv  读取
+excel，xls, xlsx     	使用 pd.read_excel  读取
+mysql,关系型数据库   	使用pd.read_sql
+
+
+eg:
+
+读取csv数据（csv）
+----------
+file = r"D:\xxx\xx\xxx.csv"
+# 读取csv数据
+ratings = pd.read_csv(file)
+
+读取csv数据(txt)
+-------------
+file = r"D:\xxx\xx\xxx.txt"
+pvuv = pd.read_csv(
+	file,       				# 文件路径
+	sep = "\t"   				# 设置分隔符
+	header=None   				# 是否有标题行
+	names=['xxx','xxx','xxx']   # 自己想要设计的类名
+)
+
+
+读取excel数据
+-------------------
+file = r"D:\xxx\xx\xxx.xlsx"
+pvuv = pd.read_excel(file)
+
+
+读取MySQL数据
+----------------------
+import pymysql
+
+conn = pymysql.connect(
+	host="127.0.0.1",
+	user="root",
+	password="123456",
+	database="test",
+	charset="utf8"
+)
+
+'''
+xxxx 为对应的表名
+'''
+mysql_page = pd.read_sql("select * from xxxx"，con=conn) 
+
+
+
+
+# 查看前几行数据
+ratings.head()
+
+# 查看数据的形状，返回（行数，列数）
+ratings.shape
+
+# 查看列名列表
+ratings.columns
+
+# 查看索引列
+ratings.index
+
+# 查看每列的数据类型
+ratings.dtypes
+
+
+DataFrame和Series
+-------------------
+DataFrame: 二维数据，代表整个表格，多行多列
+Series: 一维数据，一行或一列
+
+1.Series
+仅有数据列表即可产生最简单的Series
+
+
+1.1:
+s1 = pd.Series([1,"a",2,3,5])
+返回是：（注：左侧为索引，右侧为数据）
+0		1
+1		a
+2		2
+3		3
+4		5
+dtype: object
+
+# 获取索引
+s1.index
+返回是： RangeIndex(start=0, stop=5, step=1)
+
+# 获取数据
+s1.values
+返回是： array([1, "a",2,3,5], dtype = object)
+
+
+1.2:
+也可以自己设置索引
+s2 = pd.Series([1,"a",2,3,5]，index['a','b','c','d','e'])
+返回是：（注：左侧为索引，右侧为数据）
+a		1
+b		a
+c		2
+d		3
+e		5
+dtype: object
+
+s2.index
+返回是： Index(['a','b','c','d','e'],dtype="object")
+
+
+1.3
+使用Python字典创建Series
+sdata = {'one':1000, 'two'：2000.5，'three':3000, 'fore': 4000}
+s3 = pd.Series(sdata)
+返回是：（注：左侧为索引，右侧为数据）
+one			1000
+two			2000.5
+three		3000
+fore		4000
+dtype: object
+
+print(s3["two"]) // 返回是：2000.5
+print(type(s3["two"]))  // 返回是：float
+print(s3[["two","three"]])
+返回是：
+two			2000.5
+three		3000
+dtype: object
+print(type(s3[["two","three"]]))   //pandas.core.series.Series
+
+
+
+2.DataFrame
+DataFrame是一个表格型数据结构，每列可以是不同的数据类型，有行索引index和列索引columns
+
+2.1创建一个DataFrame
+data = {
+	'state':['Ohio', 'Ohio', 'Ohio', 'Nses', 'Nses'],
+	'year':[2000, 2001, 2002, 2003, 2004],
+	'pop':[1.5, 1.7, 3.6, 2.4, 2.9]
+}
+df = pd.DataFrame(data)
+print(df)
+    state    year     pop
+0	Ohio	 2000	  1.5
+1	Ohio	 2001	  1.7
+2	Ohio	 2002	  3.6
+3	Nses	 2003	  2.4
+4	Nses	 2004	  2.9
+
+
+print(df.dtypes)
+state		object
+year		int64
+pop			float64
+dtype:  object
+
+
+print(df.colums)
+Index(['state', 'year', 'pop'], dtype:  object)
+
+print(df.index)
+RangeIndex(start=0, stop=5, step=1)
+	
+
+DataFrame查询
+注：查询一个类型是Series，多个则还是DataFrame
+
+查询列：
+
+print(df["year"])
+0	2000		
+1	2001
+2	2002
+3	2003	
+4	2004
+Name:year, dtype:int64
+
+print(df[["year","pop"]])
+...
+
+
+查询行：
+print(df.loc[1])
+start	Ohio
+year	2001
+pop		1.7
+Name:1, dtype:object
+
+print(df.loc[1:3])  //返回包括第三行
+...
+
+
+
+Pandas 查询数据方法
+----------------------
+1.df.loc   	根据行，列的标签值查询
+2.df.iloc	根据行，列的数字位置查询
+3.df.where
+4.df.query
+
+
+Pandas  新增数据列
+------------------------
+1.直接赋值
+# 选个该列，把该列要替换的数据更改完后按原类型返回给该列
+df.loc[:, 'xxxx'] = df['xxxx'].str.replace("xx","").astype('int32')
+
+2.df.apply方法
+# get_wendu  传入的函数名   
+# axis = 0 表示选中行，axis = 1 表示选列
+
+
+def get_wendu(x):
+	if x["xxx"] > 20:
+		return "xxx"
+	if x["xxx"] < 20:
+		return "xxx"
+
+df.loc[:,'xxx'] = df.apply(get_wendu, axis=1)  
+
+# 查看该类型的计数
+df.["xxx"].value_counts()
+
+
+3. df.assign方法
+类似apply
+
+
+Pandas 汇总类统计
+--------------------------
+1.
+
+# 统计所有的数字列，并返回平均值，最大最小值...
+df.describe()
+# 想看确定列的单独方法可以用：
+df["xxx"].mean()  平均值
+df["xxx"].max()
+df["xxx"],min()
+
+2. 唯一去重和按值计算
+
+2.1 唯一去重（一般不用于数值列，多用于枚举，分类列）
+df['xxx'].unique()
+
+2.2 按值计数
+df["xxx"].value_counts()
+
+
+3. 相关系数和协方差
+# 协方差矩阵
+df.cov()
+# 相关系数矩阵
+df.corr()
+
+# 也可以生成单独两个列的相关系数
+df["xxx"].corr(df["xx"])
+
+
+Pandas 对缺失值的处理
+# skiprows=2  让pandas从第三行还是读取
+excel = pd.read_excel(C:\\xx\xx\xx.xlsx, skiprows=2) 
+
+# 检测空值 是空值用Ture替代反之用False
+excel.isnull()  
+
+# 检测空值 是空值用False替代反之用Ture
+excel.notnull()
+
+# 删除全是空值的列
+# axis  判断是用行还是用列
+# how   按照哪种方式去删除   how=all  判断全部都是
+# inplace  代表直接在这个列上修改 
+excel.dropna(axis="colums", how="all", inplace="Ture")
+
+将xxx为空的列填充为0
+excel.fillna({"xxx":0})
+或者用
+excel.loc[:,'xxx'] = excel['xxx'].fillna(0)
+
+将缺失值用前边的有效数据填充
+excel.loc[:.'xxx'] = excel['xxx'].fillna(method="ffill")
+
+Pandas 保存数据
+----------------------
+# index = False  不要生成数据的最左侧计数
+excel.to_excel(C://xxx/xx/xx.xlsx, index=False)
+
+
+Pandas  对数据排序
+----------------------
+1. Series排序 
+# 升序排列
+df['xxx'].sort_value()   
+
+# 降序排列
+df['xxx'].sort_value(ascending=False)  
+
+
+2. DataFrame排序
+# 升序排列
+df.sort_value(by="xxx")
+# 降序排列
+df.sort_value(by="xxx", ascending=False)  
+
+# 也可以对多个列排序 (注: 对多列排序时以第一个为准)
+df.sort_value(by=["xxx", 'xx'])
+
+
+Pandas  axis参数
+-----------------------
+
+1.drop  单列删除
+df.drop("A", axis=1)
+
+2.drop  单行删除
+df.drop("1", axis=0)
+
+
+Pandas   merge语法
+-----------------------
+
+1.表合并--两表又相同列，合并成一张表
+'''
+how 有多个参数
+
+left   取左侧表格全部和两张表合并部分数据
+right  取右侧表格全部和两张表合并部分数据
+inner  取两张表合并部分数据
+outer  取两张表所有数据
+'''
+result = pd.merge(excel1, excle2, on=["共同的列名"], how='inner')
+
+
+Pandas   groupby分组统计
+-------------------------
+http://localhost:8888/notebooks/Untitled.ipynb?kernel_name=python3
+
+
+Pandas    Multilndex 分层索引
+--------------------------------
+一. Series分层索引Multilndex
+二. Series有多层索引筛选数据
+三. DataFrame的多层索引Multilndex
+四. DataFrame有多层索引筛选数据
+
+http://localhost:8888/notebooks/Untitled1.ipynb?kernel_name=python3
+
+
+Pandas  map, apply, applymap 数据转换
+------------------------------------------
+http://localhost:8888/notebooks/Untitled1.ipynb?kernel_name=python3
+
+
+
+python js逆向逻辑思路
+----------------------------
+加载html --> 加载js --> 运行js初始化 --> 用户触发了某个事件 --> 调用了某段js
+--> 明文数据 --> 加密函数 --> 给服务器发信息 --> 接受到服务器数据 --> 解密函数
+--> 刷新网页渲染
+
+断点：
+dom断点
+dom事件断点
+xhr断点
+代码行断点
+代码的debugger
+全局事件断点
+
+
+逆向整体流程
+抓包 --> 调试 --> 扣去js --> 改写 -->本地运行出值
+
+常见的加密方式
+
+MD 系列  md5 md2 md4 带密码的md5
+sha 系列 sha1 sha256 sha512
+取盐校验   不可逆
+对称加密  AES DES 3DES
+非对称加密  RSA（私钥，公钥）
+
+
+混淆
+-----------------
+1.混淆常量的值和名称
+2.混淆代码执行流程
+eg1:
+	var xxx = "zhangsan";
+	var zhangsan = '1';
+	console.log(window[xxx]);   // '1'
+			|
+			|
+			V
+	var ccc = ["zhangsan","lisi"];
+	var zhangsan = '1';
+	var lisi = '2';
+	console.log(window[ccc[0]]);  // '1'
+			|
+			|
+			V
+	var ccc = ["emhhbmdzYW4=","bGlzaQ=="];   # 这两个值是张三李四的b64加密值
+	function x1(id){
+		return atob(ccc[id])
+	}
+	var zhangsan = '1';
+	var lisi = '2';
+	console.log(window[x1[0]]);  // '1'
+
+eg2:
+	浏览器v8引擎自带的eval可以在里边写入js代码
+	eval("function xx(){return '12'} xx()")    // '12'
+				|
+				|
+				V
+	eval(atob('ZnVuY3Rpb24geHgoKXtyZXR1cm4gJzEyJ30geHgoKQ=='))  // '12'
+				|
+				|
+				V
+	eval("function xx(){return atob('MTI=')} xx()")    //把返回的值b64掉然后整个b64
+	btoa("eval(\"function xx(){return atob('MTI=')} xx()\")")    //b64加密
+	eval(atob('ZXZhbCgiZnVuY3Rpb24geHgoKXtyZXR1cm4gYXRvYignTVRJPScpfSB4eCgpIik='))  //解密
+				|
+				|
+				V
+	也可以自己写方法去进行混淆(#注：这一步可以套用eg1)
+	function x(b){
+		window.zhangsan = atob;
+	}
+	
+	
+sojson 就会有各种混淆
+	
+
+伪造浏览器环境
+----------------------
+1.要伪造的东西
+	1）.全部伪造  python （jsdom(被检查太严重)， nodejs(被检查太严重)）  
+	2）.给指定的网站  伪造：
+		如何知道网站检查了什么   通过调试， 异常捕获， 本地环境运行看报错
+		
+
+
+
+2.如何伪造
+
+
+eg:
+	http://ggzy.zwfwb.tj.gov.cn/jyxxzfcg/index.jhtml
+	
+
+
+反调试：
+无限debugger
+方法1：
+	如果鼠标右键进去后发现直接进入debugger，切debugger位置一直未变，可以在debugger除鼠标右键选择Never pause here （永远不执行此处）
+
+
+先看是否为虚拟机操作
+看脚本运行后脚本名称是否发生改变   虚拟机的运行后脚本名会改变  VM+xxx
+非虚拟机
+	右键设置false
+	直接替换代码
+		谷歌浏览器默认提供
+		浏览器插件油猴
+		代理替换   fiddler
+
+页面元素断点方法：
+	f12选中要打断点的元素，鼠标右键选中Break on 把三个选项都选中，在search中用js方法点击该元素
+		
+		
+		
+		
+		
+		
+虚拟机
+centos密码 root  root@2022	
+启动docker  systemctl start docker
+设置开机自启docker systemctl enable docker
+docker ps 查看docker容器里保函的软件
+centos查看ip： ip addr
+（--name mysql-5.7 -p 3306:3306：设置端口号， MYSQL_ROOT_PASSWORD=123456：设置mysql密码， -d mysql:5.7： 指定mysql版本）
+docker安装mysql： docker run --name mysql-5.7 -p 3306:3306 -e MYSQL_ROOT_PASSWORD=123456 -d mysql:5.7
+
+
+
+
+
+
+
+
+
+
+
+
