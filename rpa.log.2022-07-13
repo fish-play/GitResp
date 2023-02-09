@@ -1,0 +1,222 @@
+2022-07-13 16:12:03,900 - ERROR - Find Control Timeout(10s): {Name: '美团外卖', ControlType: PaneControl}
+2022-07-13 16:14:57,485 - ERROR - Find Control Timeout(10s): {Name: '美团外卖', ControlType: PaneControl}
+2022-07-13 16:15:12,285 - ERROR - Uncaught exception
+Traceback (most recent call last):
+  File "C:/Users/9000/PycharmProjects/pythonProject3/lesson1.py", line 33, in <module>
+    print(control)
+  File "C:\Users\9000\PycharmProjects\pythonProject3\venv\lib\site-packages\uiautomation\uiautomation.py", line 5749, in __str__
+    rect = self.BoundingRectangle
+  File "C:\Users\9000\PycharmProjects\pythonProject3\venv\lib\site-packages\uiautomation\uiautomation.py", line 5906, in BoundingRectangle
+    rect = self.Element.CurrentBoundingRectangle
+  File "C:\Users\9000\PycharmProjects\pythonProject3\venv\lib\site-packages\uiautomation\uiautomation.py", line 6220, in Element
+    self.Refind(maxSearchSeconds=TIME_OUT_SECOND, searchIntervalSeconds=self.searchInterval)
+  File "C:\Users\9000\PycharmProjects\pythonProject3\venv\lib\site-packages\uiautomation\uiautomation.py", line 6471, in Refind
+    raise LookupError('Find Control Timeout({}s): {}'.format(maxSearchSeconds, self.GetSearchPropertiesStr()))
+LookupError: Find Control Timeout(10s): {Name: '美团外卖', ControlType: PaneControl}
+2022-07-13 16:16:23,827 - ERROR - Find Control Timeout(10s): {Name: '美团外卖', ControlType: PaneControl}
+2022-07-13 16:16:38,453 - ERROR - Uncaught exception
+Traceback (most recent call last):
+  File "C:/Users/9000/PycharmProjects/pythonProject3/lesson1.py", line 34, in <module>
+    print(control)
+  File "C:\Users\9000\PycharmProjects\pythonProject3\venv\lib\site-packages\uiautomation\uiautomation.py", line 5749, in __str__
+    rect = self.BoundingRectangle
+  File "C:\Users\9000\PycharmProjects\pythonProject3\venv\lib\site-packages\uiautomation\uiautomation.py", line 5906, in BoundingRectangle
+    rect = self.Element.CurrentBoundingRectangle
+  File "C:\Users\9000\PycharmProjects\pythonProject3\venv\lib\site-packages\uiautomation\uiautomation.py", line 6220, in Element
+    self.Refind(maxSearchSeconds=TIME_OUT_SECOND, searchIntervalSeconds=self.searchInterval)
+  File "C:\Users\9000\PycharmProjects\pythonProject3\venv\lib\site-packages\uiautomation\uiautomation.py", line 6471, in Refind
+    raise LookupError('Find Control Timeout({}s): {}'.format(maxSearchSeconds, self.GetSearchPropertiesStr()))
+LookupError: Find Control Timeout(10s): {Name: '美团外卖', ControlType: PaneControl}
+2022-07-13 16:18:46,576 - ERROR - Find Control Timeout(10s): {Name: '美团外卖', ControlType: PaneControl}
+2022-07-13 16:18:56,918 - ERROR - Uncaught exception
+Traceback (most recent call last):
+  File "C:/Users/9000/PycharmProjects/pythonProject3/lesson1.py", line 34, in <module>
+    print(control)
+  File "C:\Users\9000\PycharmProjects\pythonProject3\venv\lib\site-packages\uiautomation\uiautomation.py", line 5749, in __str__
+    rect = self.BoundingRectangle
+  File "C:\Users\9000\PycharmProjects\pythonProject3\venv\lib\site-packages\uiautomation\uiautomation.py", line 5906, in BoundingRectangle
+    rect = self.Element.CurrentBoundingRectangle
+  File "C:\Users\9000\PycharmProjects\pythonProject3\venv\lib\site-packages\uiautomation\uiautomation.py", line 6220, in Element
+    self.Refind(maxSearchSeconds=TIME_OUT_SECOND, searchIntervalSeconds=self.searchInterval)
+  File "C:\Users\9000\PycharmProjects\pythonProject3\venv\lib\site-packages\uiautomation\uiautomation.py", line 6471, in Refind
+    raise LookupError('Find Control Timeout({}s): {}'.format(maxSearchSeconds, self.GetSearchPropertiesStr()))
+LookupError: Find Control Timeout(10s): {Name: '美团外卖', ControlType: PaneControl}
+2022-07-13 16:20:55,489 - ERROR - Uncaught exception
+Traceback (most recent call last):
+  File "C:/Users/9000/PycharmProjects/pythonProject3/lesson1.py", line 28, in <module>
+    win.SetTopmost(True)
+  File "C:\Users\9000\PycharmProjects\pythonProject3\venv\lib\site-packages\uiautomation\uiautomation.py", line 7442, in SetTopmost
+    if self.IsTopLevel():
+  File "C:\Users\9000\PycharmProjects\pythonProject3\venv\lib\site-packages\uiautomation\uiautomation.py", line 6783, in IsTopLevel
+    handle = self.NativeWindowHandle
+  File "C:\Users\9000\PycharmProjects\pythonProject3\venv\lib\site-packages\uiautomation\uiautomation.py", line 6096, in NativeWindowHandle
+    handle = self.Element.CurrentNativeWindowHandle
+  File "C:\Users\9000\PycharmProjects\pythonProject3\venv\lib\site-packages\uiautomation\uiautomation.py", line 6220, in Element
+    self.Refind(maxSearchSeconds=TIME_OUT_SECOND, searchIntervalSeconds=self.searchInterval)
+  File "C:\Users\9000\PycharmProjects\pythonProject3\venv\lib\site-packages\uiautomation\uiautomation.py", line 6471, in Refind
+    raise LookupError('Find Control Timeout({}s): {}'.format(maxSearchSeconds, self.GetSearchPropertiesStr()))
+LookupError: Find Control Timeout(10s): {Name: '美团外卖', ControlType: PaneControl}
+2022-07-13 16:21:42,641 - ERROR - Uncaught exception
+Traceback (most recent call last):
+  File "C:/Users/9000/PycharmProjects/pythonProject3/lesson1.py", line 28, in <module>
+    win.SetTopmost(True)
+  File "C:\Users\9000\PycharmProjects\pythonProject3\venv\lib\site-packages\uiautomation\uiautomation.py", line 7442, in SetTopmost
+    if self.IsTopLevel():
+  File "C:\Users\9000\PycharmProjects\pythonProject3\venv\lib\site-packages\uiautomation\uiautomation.py", line 6783, in IsTopLevel
+    handle = self.NativeWindowHandle
+  File "C:\Users\9000\PycharmProjects\pythonProject3\venv\lib\site-packages\uiautomation\uiautomation.py", line 6096, in NativeWindowHandle
+    handle = self.Element.CurrentNativeWindowHandle
+  File "C:\Users\9000\PycharmProjects\pythonProject3\venv\lib\site-packages\uiautomation\uiautomation.py", line 6220, in Element
+    self.Refind(maxSearchSeconds=TIME_OUT_SECOND, searchIntervalSeconds=self.searchInterval)
+  File "C:\Users\9000\PycharmProjects\pythonProject3\venv\lib\site-packages\uiautomation\uiautomation.py", line 6471, in Refind
+    raise LookupError('Find Control Timeout({}s): {}'.format(maxSearchSeconds, self.GetSearchPropertiesStr()))
+LookupError: Find Control Timeout(10s): {Name: '美团外卖', ControlType: PaneControl}
+2022-07-13 16:23:28,959 - ERROR - Find Control Timeout(10s): {Name: '美团外卖', ControlType: PaneControl}
+2022-07-13 16:23:57,727 - ERROR - Find Control Timeout(10s): {Name: '美团外卖', ControlType: PaneControl}
+2022-07-13 16:24:46,704 - ERROR - Find Control Timeout(10s): {Name: '美团外卖', ControlType: PaneControl}
+2022-07-13 16:25:01,322 - ERROR - Uncaught exception
+Traceback (most recent call last):
+  File "C:/Users/9000/PycharmProjects/pythonProject3/lesson1.py", line 31, in <module>
+    win.ButtonControl(Name="美食").Click()
+  File "C:\Users\9000\PycharmProjects\pythonProject3\venv\lib\site-packages\uiautomation\uiautomation.py", line 6542, in Click
+    point = self.MoveCursorToInnerPos(x, y, ratioX, ratioY, simulateMove)
+  File "C:\Users\9000\PycharmProjects\pythonProject3\venv\lib\site-packages\uiautomation\uiautomation.py", line 6503, in MoveCursorToInnerPos
+    rect = self.BoundingRectangle
+  File "C:\Users\9000\PycharmProjects\pythonProject3\venv\lib\site-packages\uiautomation\uiautomation.py", line 5906, in BoundingRectangle
+    rect = self.Element.CurrentBoundingRectangle
+  File "C:\Users\9000\PycharmProjects\pythonProject3\venv\lib\site-packages\uiautomation\uiautomation.py", line 6220, in Element
+    self.Refind(maxSearchSeconds=TIME_OUT_SECOND, searchIntervalSeconds=self.searchInterval)
+  File "C:\Users\9000\PycharmProjects\pythonProject3\venv\lib\site-packages\uiautomation\uiautomation.py", line 6471, in Refind
+    raise LookupError('Find Control Timeout({}s): {}'.format(maxSearchSeconds, self.GetSearchPropertiesStr()))
+LookupError: Find Control Timeout(10s): {Name: '美食', ControlType: ButtonControl}
+2022-07-13 16:34:36,330 - ERROR - Find Control Timeout(10s): {Name: '美团外卖', ControlType: PaneControl}
+2022-07-13 16:34:46,755 - ERROR - Uncaught exception
+Traceback (most recent call last):
+  File "C:/Users/9000/PycharmProjects/pythonProject3/lesson1.py", line 37, in <module>
+    print(control)
+  File "C:\Users\9000\PycharmProjects\pythonProject3\venv\lib\site-packages\uiautomation\uiautomation.py", line 5749, in __str__
+    rect = self.BoundingRectangle
+  File "C:\Users\9000\PycharmProjects\pythonProject3\venv\lib\site-packages\uiautomation\uiautomation.py", line 5906, in BoundingRectangle
+    rect = self.Element.CurrentBoundingRectangle
+  File "C:\Users\9000\PycharmProjects\pythonProject3\venv\lib\site-packages\uiautomation\uiautomation.py", line 6220, in Element
+    self.Refind(maxSearchSeconds=TIME_OUT_SECOND, searchIntervalSeconds=self.searchInterval)
+  File "C:\Users\9000\PycharmProjects\pythonProject3\venv\lib\site-packages\uiautomation\uiautomation.py", line 6471, in Refind
+    raise LookupError('Find Control Timeout({}s): {}'.format(maxSearchSeconds, self.GetSearchPropertiesStr()))
+LookupError: Find Control Timeout(10s): {Name: '美团外卖', ControlType: PaneControl}
+2022-07-13 16:35:15,486 - ERROR - Uncaught exception
+Traceback (most recent call last):
+  File "C:/Users/9000/PycharmProjects/pythonProject3/lesson1.py", line 35, in <module>
+    for control, depth in auto.WalkTree(uiautomation, getFirstChild=GetFirstChild, getNextSibling=GetNextSibling,
+  File "C:\Users\9000\PycharmProjects\pythonProject3\venv\lib\site-packages\uiautomation\uiautomation.py", line 8105, in WalkTree
+    child = getFirstChild(top)
+  File "C:/Users/9000/PycharmProjects/pythonProject3/lesson1.py", line 14, in GetFirstChild
+    return control.GetFirstChildControl()
+AttributeError: module 'uiautomation' has no attribute 'GetFirstChildControl'
+2022-07-13 16:35:26,753 - ERROR - Uncaught exception
+Traceback (most recent call last):
+  File "C:/Users/9000/PycharmProjects/pythonProject3/lesson1.py", line 35, in <module>
+    for control, depth in auto.WalkTree(uiautomation.WindowControl, getFirstChild=GetFirstChild, getNextSibling=GetNextSibling,
+  File "C:\Users\9000\PycharmProjects\pythonProject3\venv\lib\site-packages\uiautomation\uiautomation.py", line 8105, in WalkTree
+    child = getFirstChild(top)
+  File "C:/Users/9000/PycharmProjects/pythonProject3/lesson1.py", line 14, in GetFirstChild
+    return control.GetFirstChildControl()
+TypeError: GetFirstChildControl() missing 1 required positional argument: 'self'
+2022-07-13 16:38:30,346 - ERROR - Uncaught exception
+Traceback (most recent call last):
+  File "C:/Users/9000/PycharmProjects/pythonProject3/lesson1.py", line 41, in <module>
+    win.TabControl(Name='美食').Click()
+  File "C:\Users\9000\PycharmProjects\pythonProject3\venv\lib\site-packages\uiautomation\uiautomation.py", line 6542, in Click
+    point = self.MoveCursorToInnerPos(x, y, ratioX, ratioY, simulateMove)
+  File "C:\Users\9000\PycharmProjects\pythonProject3\venv\lib\site-packages\uiautomation\uiautomation.py", line 6503, in MoveCursorToInnerPos
+    rect = self.BoundingRectangle
+  File "C:\Users\9000\PycharmProjects\pythonProject3\venv\lib\site-packages\uiautomation\uiautomation.py", line 5906, in BoundingRectangle
+    rect = self.Element.CurrentBoundingRectangle
+  File "C:\Users\9000\PycharmProjects\pythonProject3\venv\lib\site-packages\uiautomation\uiautomation.py", line 6220, in Element
+    self.Refind(maxSearchSeconds=TIME_OUT_SECOND, searchIntervalSeconds=self.searchInterval)
+  File "C:\Users\9000\PycharmProjects\pythonProject3\venv\lib\site-packages\uiautomation\uiautomation.py", line 6471, in Refind
+    raise LookupError('Find Control Timeout({}s): {}'.format(maxSearchSeconds, self.GetSearchPropertiesStr()))
+LookupError: Find Control Timeout(10s): {Name: '美食', ControlType: TabControl}
+2022-07-13 16:44:17,167 - ERROR - Uncaught exception
+Traceback (most recent call last):
+  File "C:/Users/9000/PycharmProjects/pythonProject3/lesson1.py", line 36, in <module>
+    print(control)
+  File "C:\Users\9000\PycharmProjects\pythonProject3\venv\lib\site-packages\uiautomation\uiautomation.py", line 5749, in __str__
+    rect = self.BoundingRectangle
+  File "C:\Users\9000\PycharmProjects\pythonProject3\venv\lib\site-packages\uiautomation\uiautomation.py", line 5906, in BoundingRectangle
+    rect = self.Element.CurrentBoundingRectangle
+  File "C:\Users\9000\PycharmProjects\pythonProject3\venv\lib\site-packages\uiautomation\uiautomation.py", line 6220, in Element
+    self.Refind(maxSearchSeconds=TIME_OUT_SECOND, searchIntervalSeconds=self.searchInterval)
+  File "C:\Users\9000\PycharmProjects\pythonProject3\venv\lib\site-packages\uiautomation\uiautomation.py", line 6471, in Refind
+    raise LookupError('Find Control Timeout({}s): {}'.format(maxSearchSeconds, self.GetSearchPropertiesStr()))
+LookupError: Find Control Timeout(10s): {Name: '美食', ControlType: PaneControl}
+2022-07-13 16:54:07,167 - ERROR - Uncaught exception
+Traceback (most recent call last):
+  File "C:/Users/9000/PycharmProjects/pythonProject3/lesson1.py", line 33, in <module>
+    print(control)
+  File "C:\Users\9000\PycharmProjects\pythonProject3\venv\lib\site-packages\uiautomation\uiautomation.py", line 5749, in __str__
+    rect = self.BoundingRectangle
+  File "C:\Users\9000\PycharmProjects\pythonProject3\venv\lib\site-packages\uiautomation\uiautomation.py", line 5906, in BoundingRectangle
+    rect = self.Element.CurrentBoundingRectangle
+  File "C:\Users\9000\PycharmProjects\pythonProject3\venv\lib\site-packages\uiautomation\uiautomation.py", line 6220, in Element
+    self.Refind(maxSearchSeconds=TIME_OUT_SECOND, searchIntervalSeconds=self.searchInterval)
+  File "C:\Users\9000\PycharmProjects\pythonProject3\venv\lib\site-packages\uiautomation\uiautomation.py", line 6471, in Refind
+    raise LookupError('Find Control Timeout({}s): {}'.format(maxSearchSeconds, self.GetSearchPropertiesStr()))
+LookupError: Find Control Timeout(10s): {Name: '美食', ControlType: PaneControl}
+2022-07-13 17:02:23,390 - ERROR - Uncaught exception
+Traceback (most recent call last):
+  File "C:/Users/9000/PycharmProjects/pythonProject3/lesson1.py", line 31, in <module>
+    print(jz)
+  File "C:\Users\9000\PycharmProjects\pythonProject3\venv\lib\site-packages\uiautomation\uiautomation.py", line 5749, in __str__
+    rect = self.BoundingRectangle
+  File "C:\Users\9000\PycharmProjects\pythonProject3\venv\lib\site-packages\uiautomation\uiautomation.py", line 5906, in BoundingRectangle
+    rect = self.Element.CurrentBoundingRectangle
+  File "C:\Users\9000\PycharmProjects\pythonProject3\venv\lib\site-packages\uiautomation\uiautomation.py", line 6220, in Element
+    self.Refind(maxSearchSeconds=TIME_OUT_SECOND, searchIntervalSeconds=self.searchInterval)
+  File "C:\Users\9000\PycharmProjects\pythonProject3\venv\lib\site-packages\uiautomation\uiautomation.py", line 6471, in Refind
+    raise LookupError('Find Control Timeout({}s): {}'.format(maxSearchSeconds, self.GetSearchPropertiesStr()))
+LookupError: Find Control Timeout(10s): {Name: '美食', ControlType: PaneControl}
+2022-07-13 17:10:21,311 - ERROR - Uncaught exception
+Traceback (most recent call last):
+  File "C:/Users/9000/PycharmProjects/pythonProject3/lesson1.py", line 31, in <module>
+    win.TextControl(Name='TextControl').Click()
+  File "C:\Users\9000\PycharmProjects\pythonProject3\venv\lib\site-packages\uiautomation\uiautomation.py", line 6542, in Click
+    point = self.MoveCursorToInnerPos(x, y, ratioX, ratioY, simulateMove)
+  File "C:\Users\9000\PycharmProjects\pythonProject3\venv\lib\site-packages\uiautomation\uiautomation.py", line 6503, in MoveCursorToInnerPos
+    rect = self.BoundingRectangle
+  File "C:\Users\9000\PycharmProjects\pythonProject3\venv\lib\site-packages\uiautomation\uiautomation.py", line 5906, in BoundingRectangle
+    rect = self.Element.CurrentBoundingRectangle
+  File "C:\Users\9000\PycharmProjects\pythonProject3\venv\lib\site-packages\uiautomation\uiautomation.py", line 6220, in Element
+    self.Refind(maxSearchSeconds=TIME_OUT_SECOND, searchIntervalSeconds=self.searchInterval)
+  File "C:\Users\9000\PycharmProjects\pythonProject3\venv\lib\site-packages\uiautomation\uiautomation.py", line 6471, in Refind
+    raise LookupError('Find Control Timeout({}s): {}'.format(maxSearchSeconds, self.GetSearchPropertiesStr()))
+LookupError: Find Control Timeout(10s): {Name: 'TextControl', ControlType: TextControl}
+2022-07-13 17:10:52,030 - ERROR - Uncaught exception
+Traceback (most recent call last):
+  File "C:/Users/9000/PycharmProjects/pythonProject3/lesson1.py", line 33, in <module>
+    win.TextControl(Name='TextControl').Click()
+  File "C:\Users\9000\PycharmProjects\pythonProject3\venv\lib\site-packages\uiautomation\uiautomation.py", line 6542, in Click
+    point = self.MoveCursorToInnerPos(x, y, ratioX, ratioY, simulateMove)
+  File "C:\Users\9000\PycharmProjects\pythonProject3\venv\lib\site-packages\uiautomation\uiautomation.py", line 6503, in MoveCursorToInnerPos
+    rect = self.BoundingRectangle
+  File "C:\Users\9000\PycharmProjects\pythonProject3\venv\lib\site-packages\uiautomation\uiautomation.py", line 5906, in BoundingRectangle
+    rect = self.Element.CurrentBoundingRectangle
+  File "C:\Users\9000\PycharmProjects\pythonProject3\venv\lib\site-packages\uiautomation\uiautomation.py", line 6220, in Element
+    self.Refind(maxSearchSeconds=TIME_OUT_SECOND, searchIntervalSeconds=self.searchInterval)
+  File "C:\Users\9000\PycharmProjects\pythonProject3\venv\lib\site-packages\uiautomation\uiautomation.py", line 6471, in Refind
+    raise LookupError('Find Control Timeout({}s): {}'.format(maxSearchSeconds, self.GetSearchPropertiesStr()))
+LookupError: Find Control Timeout(10s): {Name: 'TextControl', ControlType: TextControl}
+2022-07-13 17:12:41,073 - ERROR - Uncaught exception
+Traceback (most recent call last):
+  File "C:/Users/9000/PycharmProjects/pythonProject3/lesson1.py", line 35, in <module>
+    win.TextControl(Name='奶茶果汁').Click()
+  File "C:\Users\9000\PycharmProjects\pythonProject3\venv\lib\site-packages\uiautomation\uiautomation.py", line 6542, in Click
+    point = self.MoveCursorToInnerPos(x, y, ratioX, ratioY, simulateMove)
+  File "C:\Users\9000\PycharmProjects\pythonProject3\venv\lib\site-packages\uiautomation\uiautomation.py", line 6503, in MoveCursorToInnerPos
+    rect = self.BoundingRectangle
+  File "C:\Users\9000\PycharmProjects\pythonProject3\venv\lib\site-packages\uiautomation\uiautomation.py", line 5906, in BoundingRectangle
+    rect = self.Element.CurrentBoundingRectangle
+  File "C:\Users\9000\PycharmProjects\pythonProject3\venv\lib\site-packages\uiautomation\uiautomation.py", line 6220, in Element
+    self.Refind(maxSearchSeconds=TIME_OUT_SECOND, searchIntervalSeconds=self.searchInterval)
+  File "C:\Users\9000\PycharmProjects\pythonProject3\venv\lib\site-packages\uiautomation\uiautomation.py", line 6471, in Refind
+    raise LookupError('Find Control Timeout({}s): {}'.format(maxSearchSeconds, self.GetSearchPropertiesStr()))
+LookupError: Find Control Timeout(10s): {Name: '奶茶果汁', ControlType: TextControl}

@@ -1,0 +1,26 @@
+2022-07-13 15:52:29.361 lesson1.py[14] <module> -> Find Control Timeout(10s): {ControlType: WindowControl}
+2022-07-13 16:10:43.298 lesson1.py[22] <module> -> Find Control Timeout(10s): {Name: '美团外卖', ControlType: PaneControl}
+2022-07-13 16:12:03.899 lesson1.py[22] <module> -> Find Control Timeout(10s): {Name: '美团外卖', ControlType: PaneControl}
+2022-07-13 16:14:57.485 lesson1.py[27] <module> -> Find Control Timeout(10s): {Name: '美团外卖', ControlType: PaneControl}
+2022-07-13 16:15:12.285 lesson1.py[33] <module> -> Find Control Timeout(10s): {Name: '美团外卖', ControlType: PaneControl}
+2022-07-13 16:16:23.827 lesson1.py[28] <module> -> Find Control Timeout(10s): {Name: '美团外卖', ControlType: PaneControl}
+2022-07-13 16:16:38.453 lesson1.py[34] <module> -> Find Control Timeout(10s): {Name: '美团外卖', ControlType: PaneControl}
+2022-07-13 16:18:46.576 lesson1.py[28] <module> -> Find Control Timeout(10s): {Name: '美团外卖', ControlType: PaneControl}
+2022-07-13 16:18:56.918 lesson1.py[34] <module> -> Find Control Timeout(10s): {Name: '美团外卖', ControlType: PaneControl}
+2022-07-13 16:20:55.488 lesson1.py[28] <module> -> Find Control Timeout(10s): {Name: '美团外卖', ControlType: PaneControl}
+2022-07-13 16:21:42.640 lesson1.py[28] <module> -> Find Control Timeout(10s): {Name: '美团外卖', ControlType: PaneControl}
+2022-07-13 16:23:28.959 lesson1.py[28] <module> -> Find Control Timeout(10s): {Name: '美团外卖', ControlType: PaneControl}
+2022-07-13 16:23:57.727 lesson1.py[28] <module> -> Find Control Timeout(10s): {Name: '美团外卖', ControlType: PaneControl}
+2022-07-13 16:24:46.704 lesson1.py[28] <module> -> Find Control Timeout(10s): {Name: '美团外卖', ControlType: PaneControl}
+2022-07-13 16:25:01.322 lesson1.py[31] <module> -> Find Control Timeout(10s): {Name: '美食', ControlType: ButtonControl}
+2022-07-13 16:34:36.329 lesson1.py[28] <module> -> Find Control Timeout(10s): {Name: '美团外卖', ControlType: PaneControl}
+2022-07-13 16:34:46.755 lesson1.py[37] <module> -> Find Control Timeout(10s): {Name: '美团外卖', ControlType: PaneControl}
+2022-07-13 16:38:30.345 lesson1.py[41] <module> -> Find Control Timeout(10s): {Name: '美食', ControlType: TabControl}
+2022-07-13 16:44:17.167 lesson1.py[36] <module> -> Find Control Timeout(10s): {Name: '美食', ControlType: PaneControl}
+2022-07-13 16:54:07.166 lesson1.py[33] <module> -> Find Control Timeout(10s): {Name: '美食', ControlType: PaneControl}
+2022-07-13 17:02:23.390 lesson1.py[31] <module> -> Find Control Timeout(10s): {Name: '美食', ControlType: PaneControl}
+2022-07-13 17:10:21.310 lesson1.py[31] <module> -> Find Control Timeout(10s): {Name: 'TextControl', ControlType: TextControl}
+2022-07-13 17:10:52.029 lesson1.py[33] <module> -> Find Control Timeout(10s): {Name: 'TextControl', ControlType: TextControl}
+2022-07-13 17:12:41.072 lesson1.py[35] <module> -> Find Control Timeout(10s): {Name: '奶茶果汁', ControlType: TextControl}
+2022-11-04 10:58:07.604 lesson1.py[32] <module> -> Find Control Timeout(10s): {Name: '通话记录', ControlType: TextControl}
+2022-11-04 10:58:29.496 lesson1.py[32] <module> -> Find Control Timeout(10s): {Name: '通话记录', ControlType: TextControl}
