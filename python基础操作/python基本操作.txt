@@ -1,3 +1,7 @@
+以下都可以下载utools软件进行查询
+
+
+
 json格式化字典
 
 
@@ -1752,9 +1756,13 @@ docker ps 查看docker容器里保函的软件
 centos查看ip： ip addr
 （--name mysql-5.7 -p 3306:3306：设置端口号， MYSQL_ROOT_PASSWORD=123456：设置mysql密码， -d mysql:5.7： 指定mysql版本）
 docker安装mysql： docker run --name mysql-5.7 -p 3306:3306 -e MYSQL_ROOT_PASSWORD=123456 -d mysql:5.7
+docker 查看仓库里的镜像: docker images
+docker 启动镜像： docker start xxxxx
 
-
-
+查看虚拟机系统版本：    cat /etc/redhat-release
+查看docker版本号：    docker version
+创建一个存放软件的目录： mkdir -p /usr/local/docker/
+查看目录里的内容：      ls -l /usr/local/docker/
 
 
 

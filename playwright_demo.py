@@ -11,7 +11,11 @@ async def main():
         await page.fill('xpath=//*[@id="kw"]', "csdn")
         await page.click('xpath=//*[@id="su"]')
         async with page.expect_popup() as page1_info:
+            print(await page.inner_text('xpath=//*[@id="1"]//a[text()=" - 专业开发者社区"]'))
+            print(await page.locator('xpath=//*[@id="1"]//a[text()=" - 专业开发者社区"]').inner_text())
+            # print(await page.get_by_placeholder('//*[@id="1"]//a').nth(1).inner_text())
             await page.click('xpath=//*[@id="1"]//a[text()=" - 专业开发者社区"]')
+
         print(111)
         page1 = await page1_info.value
         await page1.close()

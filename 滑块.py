@@ -1,5 +1,3 @@
-
-
 import time, random
 import requests
 from selenium.webdriver import ActionChains
@@ -78,6 +76,7 @@ while True:
     # 按住滑块元素
     action.click_and_hold(ele_hk).perform()
 
+
     # def randomNumVaccinePersonTotal(maxValue):
     #     '''生成总和固定的整数序列
     #     maxValue: 序列总和
@@ -102,22 +101,25 @@ while True:
         track = []
         current = 0
         # 阈值
-        mid = distance * 3 / 4
-        t = random.randint(5, 6) / 10
+        mid = distance * 2 / 4
+        t = 8
         v = 0
         while current < distance:
             if current < mid:
-                a = 2
+                a = 1
             else:
                 a = -3
             v0 = v
             v = v0 + a * t
-            move = v0 * t + 3 / 4 * a * t * t
+            move = v0 * t + 2 / 4 * a * t * t
             current += move
             track.append(round(move))
         return track
+
+
     # action.move_by_offset(x-50, 0).perform()
     track_list = get_track(x)
+    # print(track_list)
 
     for track in track_list:
         # print(track)
