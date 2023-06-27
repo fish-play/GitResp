@@ -57,38 +57,6 @@ unzip_file(zip_src="C:\\Users\\9000\\Desktop\\555\\111.zip", dst_dir="C:\\Users\
 
 
 ----------------------------------------------------------------------------------------------------------------------------------------------------------------
-# 海象表达式                                                                 |
-eg:                                                                        | eg:
-   a = 20                                                                  |    if a:=20>15:
-   if a >15:                                                               |        print(xxxxx)
-      print(xxxxx)                                                         |
-----------------------------------------------------------------------------------------------------------------------------------------------------------------
-eg:                                                                        |eg:
-   file = open("demo.txt", "r")                                            |    file = open("demo.txt", "r")
-   while Ture:                                                             |    while (line:=file.readline()):
-        line = file.readline()                                             |        print(line.strip())
-        if not line:                                                       |
-            break                                                          |
-        print(line.strip())                                                |
-----------------------------------------------------------------------------------------------------------------------------------------------------------------
-                                                                           |
-                                                                           |
-                                                                           |
-                                                                           |
-                                                                           |
-                                                                           |
-                                                                           |
-                                                                           |
-                                                                           |
-                                                                           |
-                                                                           |
-                                                                           |
-
-
-
-
-
-----------------------------------------------------------------------------------------------------------------------------------------------------------------
 
 
 
@@ -206,7 +174,7 @@ with pdfplumber.open(path)as pdf:
         e = int(e)
         e = e-1
         print(e)
-        
+
             second_pag = pdf.pages[e]
             # print(second_pag)
             action_Name = second_pag.extract_tables()[0]
@@ -275,13 +243,13 @@ git提交：    https://help.aliyun.com/document_detail/153802.html
 下拉数据                                                                   			git clone 地址
 查看当前管理的文件夹中所有文件和文件夹的状态     									git status
 管理单独的文件夹                                                     				git add supercrm
-管理所有文件和文件夹                                              					git add .  
+管理所有文件和文件夹                                              					git add .
 添加备注                                                                  			git commit -m "xxxx"
 查看git所管理的所有版本                                         					git log
 执行git回滚操作                                                       				git reset --hard 版本号
-将文件从以修改的工作区回滚到未修改的状态           									git checkout -- 文件名  
+将文件从以修改的工作区回滚到未修改的状态           									git checkout -- 文件名
 让他回到工作去，并且还保持着修改后的状态           									git reset HEAD 文件名
-查看当前分支                                                           				git branch    
+查看当前分支                                                           				git branch
 创建一个名为dev的分支                                           					git branch dev
 将工作切换到dev分支上                                           					git checkout dev
 分支合并---首先切换到master分支，然后在master分支上执行merge指令来合并bug分支的代码                        git branch master        git merge bug
@@ -377,7 +345,7 @@ shuit.rmtree()																	# 删除文化夹（无论文件夹中有没有�
 pickle.dumps(x)																	# 将python对象转为二进制对象
 pickle.loads(x)																	# 将二进制对象转为python对象
 pickle.dump(x, y)														# 将python对象转换成二进制文本（前提是需要先创建一个文本用来保存二进制文件， x为要转换的文本， y为文本的名称）
-pickle.load(x)  																# 将二进制文本转换为python文本（前提书先需要一个二进制文本对象） 
+pickle.load(x)  																# 将二进制文本转换为python文本（前提书先需要一个二进制文本对象）
 
 
 ----------------------------------------------------------------------------------------------------------------------------------------------------------------
@@ -406,7 +374,7 @@ driver.switch_to.window(driver.window_handles[1])								# 切换页面
 dc = driver.find_element(By.XPATH, 'xxx').text 									# 获取文本内容
 driver.execute_script('window.scrollTo(0, 2000)')								# 拉动滚动条到指定位置
 win32api.mouse_event(win32con.MOUSEEVENTF_WHEEL,0,0,-400)                       # 模拟鼠标滑轮滚动（'-'为向下，'+'为向上）
-Keys对象导入：from selenium.webdriver.common.keys import Keys          
+Keys对象导入：from selenium.webdriver.common.keys import Keys
 删除键（BackSpace）
 send_keys(Keys.BACKSPACE)
 空格键(Space)
@@ -515,8 +483,8 @@ pyautogui.moveTo(screenWidth / 2, screenHeight / 2)
 
 # 鼠标左击一次
 #pyautogui.click()
-# x 
-# y 
+# x
+# y
 # clicks 点击次数
 # interval点击之间的间隔
 # button 'left', 'middle', 'right' 对应鼠标 左 中 右或者取值(1, 2, or 3)
@@ -600,7 +568,7 @@ pyautogui.PAUSE = 0.5
 
 jupyter_notebook 调试
 
-1. 新建一个文件夹 ——>2.把rpalibe拖入——>3.拖入浏览器驱动 
+1. 新建一个文件夹 ——>2.把rpalibe拖入——>3.拖入浏览器驱动
 ——>4.在文件夹中按shift点击鼠标右键，选择shell模式
 ——>5.输入jupyter notebook——>6.在files中点击右上角的new，并选择python3
 
@@ -620,7 +588,7 @@ jupyter_notebook 调试
 可视化学习数据结构与算法：https://visualgo.net/zh
 设计模式学习：https://refactoring.guru/design-patterns/catalog
 SQL在线练习网站：https://sqlzoo.net/wiki/SELECT_basics/zh
-刷题网站：https://leetcode-cn.com/   
+刷题网站：https://leetcode-cn.com/
           https://www.nowcoder.com/
 自动生成请求代码网址：https://curlconverter.com/#
 寻代理 http://www.xdaili.cn/
@@ -651,12 +619,12 @@ eg：
         if str(r.status_code) == "200":
             print('r------------------->', r.text)
             logger.info(f"{self.item.insurance}保全基本信息保存完成")
-			
-			
+
+
 ----------------------------------------------------------------------------------------------------------------------------------------------------------------
 
 正则表达式
-			
+
 import re
 
 
@@ -905,8 +873,8 @@ python3中 ...可以代替pass
 向左补0：
  a.rjust(6, '0')         # a为变量，6为长度，‘0’为向左补充的字符（a必须为字符串格式）
  a.zfill(6)					# # a为变量，6为长度, 默认为0
- 
- 
+
+
 将安装的包写入required.txt文件: pip freeze > required.txt
 建立应用的命令：python manage.py startapp 应用名
 运行开发web服务器命令：python manage.py runserver
@@ -930,7 +898,7 @@ for i in zip(*x):
 	print(a)
 注：a的结果为
 [1, 4, 7]
-[2, 5, 8] 
+[2, 5, 8]
 [3, 6, 9]
 
 
@@ -984,8 +952,8 @@ class Coordinate:
     x = 10
     y = -5
     z = 0
- 
-point1 = Coordinate() 
+
+point1 = Coordinate()
 print(hasattr(point1, 'x'))
 print(hasattr(point1, 'y'))
 print(hasattr(point1, 'z'))
@@ -1018,10 +986,10 @@ a = [5, 6, 34, 3, 78, 9, 2, 1, 7]
 b = sorted(a)
 
 -----------------------------------------------------------------------------------------------------------------------------------------------
- 
+
 python打包文件：
 先下载pyinstaller
-创建一个dist文件夹-----》创建一个ico格式的图片作为.exe的图片-------》把要打包的py文件放入build--------》输入pyinstaller -F -i ./photo.ico arrt.py   
+创建一个dist文件夹-----》创建一个ico格式的图片作为.exe的图片-------》把要打包的py文件放入build--------》输入pyinstaller -F -i ./photo.ico arrt.py
 （photo.ico为生成exe的图片， arrt.py为打包的文件）
 
 -----------------------------------------------------------------------------------------------------------------------------------------------
@@ -1042,7 +1010,7 @@ win32gui.SendMessage(edit_hnadle, win32con.WM_SETTEXT, None, '我想睡觉')   #
 menu_handle = win32gui.GetMenu(win)								# 获取窗口的菜单句柄
 menu_handle = win32gui.GetSubMenu(menu_handle, 0)               # 获取菜单句柄中的下拉句柄
 com_ID = win32gui.GetMenuItemID(menu_handle, 3)					# 获得菜单项中的的标志符，注意，分隔符是被编入索引的   3为菜单句柄子菜单索引号
-win32gui.PostMessage(win, win32con.WM_COMMAND, com_ID, 0)       # 发送消息， 加入消息队列   win(句柄) win32_con.WM_COMMAND(消息类型) 
+win32gui.PostMessage(win, win32con.WM_COMMAND, com_ID, 0)       # 发送消息， 加入消息队列   win(句柄) win32_con.WM_COMMAND(消息类型)
 
 
 -----------------------------------------------------------------------------------------------------------------------------------------------
@@ -1050,6 +1018,114 @@ win32gui.PostMessage(win, win32con.WM_COMMAND, com_ID, 0)       # 发送消息�
 playwright：
 playwright codegen www.xxx.com
 录制视频然后复制代码
+
+# playwright 方法：
+from playwright.sync_api import Playwright, sync_playwright
+playwright = sync_playwright().start()
+browser = playwright.chromium.launch(headless=False, args=["--start-maximized"])
+context = browser.new_context(no_viewport=True)
+page = context.new_page()
+
+# goto类似于selenium的get(url)
+page.goto('https://www.runoob.com/')
+
+# locator 选中，fill 输入
+page.locator('//*[@id="s"]').fill("正则")
+
+# 切换新页面, press 执行键盘操作
+with page.expect_popup() as page1_info:
+	page.locator('//*[@id="s"]').press("Enter")
+page1 = page1_info.value
+
+
+# set_input_files 上传文件
+page.locator('//*[@id="app"]//em[text()="上传其他图片"]/..//input').set_input_files(all_path)
+
+# is_visible 判断元素是否加载并可见 返回true或false
+page.is_visible('xpath=//p[text()="百度安全验证"]')
+
+# 滑块操作
+drop_button = page.locator('xpath=//p[text()="拖动左侧滑块至最右侧"]/../../div[3]/p')
+box = drop_button.bounding_box()
+page.mouse.move(box['x'] + box['width'] / 2, box['y'] + box['height'] / 2)
+page.mouse.down()
+mov_x = box['x'] + box['width'] / 2 + 260
+page.mouse.move(mov_x, box['y'] + box['height'] / 2)
+page.mouse.up()
+
+# reload（）刷新页面
+page.reload()
+
+# 控制鼠标向下滑动
+page.mouse.wheel(0, 175)
+
+# query_selector_all类似于selenium的findelements
+sss = page.query_selector_all("xpath=//div[text()='相似图片']/../../div[2]/div/div/a")
+
+# get_attribute（）获取元素里的value
+href = page1.query_selector("//div[@id='app']/div/div[2]/div/div/a").get_attribute('href')
+
+# close()关闭当前页面
+page1.close()
+
+# nth同级元素第1个
+page.get_by_placeholder("请输入手机号码").nth(1).click()
+
+# 后退
+page.go_back(**kwargs)
+
+# 前进
+page.go_forward(**kwargs)
+
+# 等待直到title元素被加载完全
+page.locator("title").wait_for()
+
+# 会自动等待按钮加载好再执行点击
+page.locator("button", has_text="sign up").click()
+
+# Playwright 会等待 #search 元素出现在 DOM 中
+page.fill('#search', 'query')
+
+# Playwright 会等待元素停止动画并接受点击
+page.click('#search')
+
+# 等待 #search 出现在 DOM 中
+page.wait_for_selector('#search', state='attached')
+# 等待 #promo 可见, 例如具有 `visibility:visible`
+page.wait_for_selector('#promo')
+
+# 等待 #details 变得不可见, 例如通过 `display:none`.
+page.wait_for_selector('#details', state='hidden')
+
+# 等待 #promo 从 DOM 中移除
+page.wait_for_selector('#promo', state='detached')
+
+# 随机等待
+page.wait_for_timeout(random.uniform(2500, 4500))
+
+# 获取文本内容
+inner_text
+
+# 使用js方法
+page.evaluate()
+
+
+cmd打开chrome然后playwright接通该浏览器
+
+import os
+from playwright.sync_api import Playwright, sync_playwright
+os.system('start cmd.exe /K C:\\HFTRPA\\chrome\\chrome.exe --remote-debugging-port=9200')
+
+
+
+
+with sync_playwright() as playwright:
+    browser = playwright.chromium.connect_over_cdp("http://localhost:9200")
+    default_context = browser.contexts[0]
+    page = default_context.pages[0]
+    print(page)
+    page = default_context.new_page()
+    page.goto("https://www.baidu.com")
 
 
 
@@ -1065,7 +1141,7 @@ async def run():
 	await asyncio.sleep(1)  # 异步等待1秒
 	a = input(str('xxxxx'))
 	print(a)
-	
+
 # 创建一个异步函数
 async def run1():
 	await asyncio.sleep(0.5)
@@ -1083,8 +1159,7 @@ if __main__ == '__main__':
 
 python打包文件：
 先下载pyinstaller
-创建一个dist文件夹-----》创建一个ico格式的图片作为.exe的图片-------》把要打包的py文件放入build--------》输入pyinstaller -F -i ./photo.ico arrt.py   
-（photo.ico为生成exe的图片， arrt.py为打包的文件）
+创建一个dist文件夹-----》把要打包的py文件放入build--------》cmd 输入Pyinstaller -F -w 程序名称.py
 
 
 -----------------------------------------------------------------------------------------------------------------------------------------------
@@ -1153,9 +1228,9 @@ names︰ 列表中，默认为无。由此产生的分层索引中的级的名�
 verify_integrity︰ 布尔值、 默认 False。检查是否新的串联的轴包含重复项。这可以是相对于实际数据串联非常昂贵。
 副本︰ 布尔值、 默认 True。如果为 False，请不要，不必要地复制数据。
 
-			  
-			  
-			  
+
+
+
 例子：1.frames = [df1, df2, df3]
           2.result = pd.concat(frames)   # 将df1,df2,df3一同合并
 
@@ -1236,7 +1311,7 @@ g = df.drop_duplicates(subset = "身份证")   # 按着身份证的唯一性进�
 for name in g.index:    # 返回所有的序列号
 	data = df.loc[name]    # 返回每一个excel信息
 	data = df.loc[name].to_dict  # 按照字典的格式返回
-	
+
 
 设置excel转pdf样式
 https://docs.microsoft.com/zh-cn/office/vba/api/excel.pagesetup.parent
@@ -1256,14 +1331,14 @@ def error(e):
         _list.append(node)
         node = node.tb_next
     return f" line {_list[-1].tb_lineno} {repr(e)}"
-	
-	
+
+
 def run(self):
 	try:
 		self.fun1()
 	except Exception as e:
 		print(error(e))
-	
+
 
 
 
@@ -1320,7 +1395,7 @@ conn = pymysql.connect(
 '''
 xxxx 为对应的表名
 '''
-mysql_page = pd.read_sql("select * from xxxx"，con=conn) 
+mysql_page = pd.read_sql("select * from xxxx"，con=conn)
 
 
 
@@ -1437,7 +1512,7 @@ Index(['state', 'year', 'pop'], dtype:  object)
 
 print(df.index)
 RangeIndex(start=0, stop=5, step=1)
-	
+
 
 DataFrame查询
 注：查询一个类型是Series，多个则还是DataFrame
@@ -1445,10 +1520,10 @@ DataFrame查询
 查询列：
 
 print(df["year"])
-0	2000		
+0	2000
 1	2001
 2	2002
-3	2003	
+3	2003
 4	2004
 Name:year, dtype:int64
 
@@ -1483,7 +1558,7 @@ Pandas  新增数据列
 df.loc[:, 'xxxx'] = df['xxxx'].str.replace("xx","").astype('int32')
 
 2.df.apply方法
-# get_wendu  传入的函数名   
+# get_wendu  传入的函数名
 # axis = 0 表示选中行，axis = 1 表示选列
 
 
@@ -1493,7 +1568,7 @@ def get_wendu(x):
 	if x["xxx"] < 20:
 		return "xxx"
 
-df.loc[:,'xxx'] = df.apply(get_wendu, axis=1)  
+df.loc[:,'xxx'] = df.apply(get_wendu, axis=1)
 
 # 查看该类型的计数
 df.["xxx"].value_counts()
@@ -1535,10 +1610,10 @@ df["xxx"].corr(df["xx"])
 
 Pandas 对缺失值的处理
 # skiprows=2  让pandas从第三行还是读取
-excel = pd.read_excel(C:\\xx\xx\xx.xlsx, skiprows=2) 
+excel = pd.read_excel(C:\\xx\xx\xx.xlsx, skiprows=2)
 
 # 检测空值 是空值用Ture替代反之用False
-excel.isnull()  
+excel.isnull()
 
 # 检测空值 是空值用False替代反之用Ture
 excel.notnull()
@@ -1546,7 +1621,7 @@ excel.notnull()
 # 删除全是空值的列
 # axis  判断是用行还是用列
 # how   按照哪种方式去删除   how=all  判断全部都是
-# inplace  代表直接在这个列上修改 
+# inplace  代表直接在这个列上修改
 excel.dropna(axis="colums", how="all", inplace="Ture")
 
 将xxx为空的列填充为0
@@ -1565,19 +1640,19 @@ excel.to_excel(C://xxx/xx/xx.xlsx, index=False)
 
 Pandas  对数据排序
 ----------------------
-1. Series排序 
+1. Series排序
 # 升序排列
-df['xxx'].sort_value()   
+df['xxx'].sort_value()
 
 # 降序排列
-df['xxx'].sort_value(ascending=False)  
+df['xxx'].sort_value(ascending=False)
 
 
 2. DataFrame排序
 # 升序排列
 df.sort_value(by="xxx")
 # 降序排列
-df.sort_value(by="xxx", ascending=False)  
+df.sort_value(by="xxx", ascending=False)
 
 # 也可以对多个列排序 (注: 对多列排序时以第一个为准)
 df.sort_value(by=["xxx", 'xx'])
@@ -1702,18 +1777,18 @@ eg2:
 	function x(b){
 		window.zhangsan = atob;
 	}
-	
-	
+
+
 sojson 就会有各种混淆
-	
+
 
 伪造浏览器环境
 ----------------------
 1.要伪造的东西
-	1）.全部伪造  python （jsdom(被检查太严重)， nodejs(被检查太严重)）  
+	1）.全部伪造  python （jsdom(被检查太严重)， nodejs(被检查太严重)）
 	2）.给指定的网站  伪造：
 		如何知道网站检查了什么   通过调试， 异常捕获， 本地环境运行看报错
-		
+
 
 
 
@@ -1722,7 +1797,7 @@ sojson 就会有各种混淆
 
 eg:
 	http://ggzy.zwfwb.tj.gov.cn/jyxxzfcg/index.jhtml
-	
+
 
 
 反调试：
@@ -1742,33 +1817,30 @@ eg:
 
 页面元素断点方法：
 	f12选中要打断点的元素，鼠标右键选中Break on 把三个选项都选中，在search中用js方法点击该元素
-		
-		
-		
-		
-		
-		
+
+
+
+
+
+
 虚拟机
-centos密码 root  root@2022	
+centos密码 root  root@2022
 启动docker  systemctl start docker
 设置开机自启docker systemctl enable docker
 docker ps 查看docker容器里保函的软件
 centos查看ip： ip addr
 （--name mysql-5.7 -p 3306:3306：设置端口号， MYSQL_ROOT_PASSWORD=123456：设置mysql密码， -d mysql:5.7： 指定mysql版本）
 docker安装mysql： docker run --name mysql-5.7 -p 3306:3306 -e MYSQL_ROOT_PASSWORD=123456 -d mysql:5.7
-docker 查看仓库里的镜像: docker images
-docker 启动镜像： docker start xxxxx
-
-查看虚拟机系统版本：    cat /etc/redhat-release
-查看docker版本号：    docker version
-创建一个存放软件的目录： mkdir -p /usr/local/docker/
-查看目录里的内容：      ls -l /usr/local/docker/
 
 
 
 
+https://zhuanlan.zhihu.com/p/352521419
 
 
 
 
+zhangpeng
+KsNgc1@q
 
+python语法糖

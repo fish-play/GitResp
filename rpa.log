@@ -1,30 +1,14 @@
-2022-11-04 10:58:07,608 - ERROR - Uncaught exception
+2023-06-21 09:06:24,488 - ERROR - Uncaught exception
 Traceback (most recent call last):
-  File "C:/Users/9000/PycharmProjects/pythonProject3/lesson1.py", line 32, in <module>
-    win.TextControl(Name='通话记录').Click()
-  File "C:\Users\9000\Anaconda3\envs\cc\lib\site-packages\uiautomation\uiautomation.py", line 6542, in Click
-    point = self.MoveCursorToInnerPos(x, y, ratioX, ratioY, simulateMove)
-  File "C:\Users\9000\Anaconda3\envs\cc\lib\site-packages\uiautomation\uiautomation.py", line 6503, in MoveCursorToInnerPos
-    rect = self.BoundingRectangle
-  File "C:\Users\9000\Anaconda3\envs\cc\lib\site-packages\uiautomation\uiautomation.py", line 5906, in BoundingRectangle
-    rect = self.Element.CurrentBoundingRectangle
-  File "C:\Users\9000\Anaconda3\envs\cc\lib\site-packages\uiautomation\uiautomation.py", line 6220, in Element
-    self.Refind(maxSearchSeconds=TIME_OUT_SECOND, searchIntervalSeconds=self.searchInterval)
-  File "C:\Users\9000\Anaconda3\envs\cc\lib\site-packages\uiautomation\uiautomation.py", line 6471, in Refind
-    raise LookupError('Find Control Timeout({}s): {}'.format(maxSearchSeconds, self.GetSearchPropertiesStr()))
-LookupError: Find Control Timeout(10s): {Name: '通话记录', ControlType: TextControl}
-2022-11-04 10:58:29,496 - ERROR - Uncaught exception
+  File "D:\GitResp\uiautomation.py", line 13, in <module>
+    import uiautomation as auto
+  File "D:\GitResp\uiautomation.py", line 26, in <module>
+    desktop = auto.GetRootControl()
+AttributeError: partially initialized module 'uiautomation' has no attribute 'GetRootControl' (most likely due to a circular import)
+2023-06-21 09:09:59,233 - ERROR - Uncaught exception
 Traceback (most recent call last):
-  File "C:/Users/9000/PycharmProjects/pythonProject3/lesson1.py", line 32, in <module>
-    win.TextControl(Name='通话记录').Click()
-  File "C:\Users\9000\Anaconda3\envs\cc\lib\site-packages\uiautomation\uiautomation.py", line 6542, in Click
-    point = self.MoveCursorToInnerPos(x, y, ratioX, ratioY, simulateMove)
-  File "C:\Users\9000\Anaconda3\envs\cc\lib\site-packages\uiautomation\uiautomation.py", line 6503, in MoveCursorToInnerPos
-    rect = self.BoundingRectangle
-  File "C:\Users\9000\Anaconda3\envs\cc\lib\site-packages\uiautomation\uiautomation.py", line 5906, in BoundingRectangle
-    rect = self.Element.CurrentBoundingRectangle
-  File "C:\Users\9000\Anaconda3\envs\cc\lib\site-packages\uiautomation\uiautomation.py", line 6220, in Element
-    self.Refind(maxSearchSeconds=TIME_OUT_SECOND, searchIntervalSeconds=self.searchInterval)
-  File "C:\Users\9000\Anaconda3\envs\cc\lib\site-packages\uiautomation\uiautomation.py", line 6471, in Refind
-    raise LookupError('Find Control Timeout({}s): {}'.format(maxSearchSeconds, self.GetSearchPropertiesStr()))
-LookupError: Find Control Timeout(10s): {Name: '通话记录', ControlType: TextControl}
+  File "D:\GitResp\uiautomation.py", line 13, in <module>
+    import uiautomation as auto
+  File "D:\GitResp\uiautomation.py", line 26, in <module>
+    desktop = auto.GetRootControl()
+AttributeError: partially initialized module 'uiautomation' has no attribute 'GetRootControl' (most likely due to a circular import)

@@ -10,27 +10,26 @@ import time
 # import win32gui
 from log import logger
 
-# import uiautomation as auto
-# import uiautomation
+import uiautomation as auto
+import uiautomation
 
-# def GetFirstChild(control):
-#     return control.GetFirstChildControl()
-#
-#
-# def GetNextSibling(control):
-#     return control.GetNextSiblingControl()
+def GetFirstChild(control):
+    return control.GetFirstChildControl()
 
-# '''
-# 利用win32查找句柄部分
-# '''
-# desktop = auto.GetRootControl()
-# for control, depth in auto.WalkTree(desktop, getFirstChild=GetFirstChild, getNextSibling=GetNextSibling,
-#                                     includeTop=True, maxDepth=4):
-#     print(control)
+
+def GetNextSibling(control):
+    return control.GetNextSiblingControl()
+
+'''
+利用win32查找句柄部分
+'''
+desktop = auto.GetRootControl()
+for control, depth in auto.WalkTree(desktop, getFirstChild=GetFirstChild, getNextSibling=GetNextSibling,
+                                    includeTop=True, maxDepth=4):
+    print(control)
 '''
 控制软件部分
 '''
-# win =  uiautomation.PaneControl(Name="步步高USB办公电话(RecorderPhone)")
 #
 # win.SetTopmost(True)
 # #
@@ -81,20 +80,3 @@ from log import logger
 #     x(i)
 
 
-n = int(input())
-print('1 ')
-if n > 1:
-    print("1 1 ")
-    add = 0
-    i = 3
-    lst = [1, 1]
-    while (i < n + 1):
-        lst1 = lst[:]
-        lst = [1, 1]
-        for j in range(1, i - 1):
-            add = lst1[j - 1] + lst1[j]
-            lst.insert(-1, add)
-        i += 1
-        for k in lst:
-            print(k, end=' ')
-        print()

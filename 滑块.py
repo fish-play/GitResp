@@ -141,28 +141,28 @@ while True:
         except Exception as e:
             break
 # import os
-#
-#
-# def run(file_5, file_nlp):
-#     list1 = []
-#     list2 = []
-#     for i in os.listdir(file_5):
-#         list1.append(i)
-#
-#     for e in os.listdir(file_nlp):
-#         list2.append(e)
-#
-#     same, diff = [], []
-#     seq = list(set(list2))
-#     for i in list(set(list1)):
-#         if i not in list2:
-#             diff.append(i)
-#         else:
-#             same.append(i)
-#     for j in same:
-#         seq.remove(j)
-#     print("same is {},xxxxxxxxxxx {}".format(same, diff + seq))
-#
-#
-#
-# run(file_5=r"C:\Users\9000\Desktop\新建文件夹 (5)", file_nlp=r"C:\Users\9000\Desktop\nlp\The_picture")
+
+
+def run(file_5, file_nlp):
+    list1 = []
+    list2 = []
+    for i in os.listdir(file_5):
+        list1.append(i)
+
+    for e in os.listdir(file_nlp):
+        list2.append(e)
+
+    same, diff = [], []
+    seq = list(set(list2))
+    for i in list(set(list1)):
+        if i not in list2:
+            diff.append(i)
+        else:
+            same.append(i)
+    for j in same:
+        seq.remove(j)
+    print("same is {},xxxxxxxxxxx {}".format(same, diff + seq))
+
+
+
+run(file_5=r"C:\Users\9000\Desktop\新建文件夹 (5)", file_nlp=r"C:\Users\9000\Desktop\nlp\The_picture")
