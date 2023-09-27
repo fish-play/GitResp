@@ -72,9 +72,9 @@ a = [
 #     print(x)
 #     print(y)
 #     print(z)
-# ss = zip(a[0], a[1], a[2], a[3])
-# for i in ss:
-#     for e in list(i):
-#         print(e)
-if (length := len(a) > 0):
-    print(length)
+ss = zip(a[0], a[1], a[2], a[3])
+for i in ss:
+    for e in list(i):
+        print(e)
+# if (length := len(a) > 0):
+#     print(length)
