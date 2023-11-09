@@ -27,22 +27,33 @@ desktop = auto.GetRootControl()
 for control, depth in auto.WalkTree(desktop, getFirstChild=GetFirstChild, getNextSibling=GetNextSibling,
                                     includeTop=True, maxDepth=4):
     print(control)
+
+
+
+
+
+
+
+
+
+
+
 '''
 控制软件部分
 '''
 #
-# win.SetTopmost(True)
-# #
-# time.sleep(3)
-# win.EditControl(AutomationId='1235').SendKeys('017633602179')
-# time.sleep(2)
+win.SetTopmost(True)
 #
-# win.ButtonControl(Name='拨号').Click()
-# win.EditControl(AutomationId='1235').SendKeys('{Ctrl}(A)')
-# win.EditControl(AutomationId='1235').SendKeys('{Ctrl}(X)')
+time.sleep(3)
+win.EditControl(AutomationId='1235').SendKeys('017633602179')
+time.sleep(2)
+
+win.ButtonControl(Name='拨号').Click()
+win.EditControl(AutomationId='1235').SendKeys('{Ctrl}(A)')
+win.EditControl(AutomationId='1235').SendKeys('{Ctrl}(X)')
 
 
-# win.PaneControl(Name='步步高USB办公电话').Click()
+win.PaneControl(Name='步步高USB办公电话').Click()
 
 
 # jz = win.TextControl(Name='美食').GetParentControl().GetParentControl()

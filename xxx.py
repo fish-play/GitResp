@@ -2,12 +2,11 @@
 -*- coding: utf-8 -*-
 @Time : 2022/11/18 12:41
 """
-import requests
+from DrissionPage.easy_set import set_paths
+from DrissionPage import ChromiumPage
 
-headers = {
-    "User-Agent": "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/107.0.0.0 Safari/537.36"
-}
-url = "http://ggzy.zwfwb.tj.gov.cn/jyxxzfcg/index.jhtml"
+page = ChromiumPage(addr_driver_opts=)
 
-response = requests.get(url, headers=headers).text
-print(response)
+page.get('https://www.jd.com/?cu=true&utm_source=baidu-pinzhuan&utm_medium=cpc&utm_campaign=t_288551095_baidupinzhuan&utm_term=0f3d30c8dba7459bb52f2eb5eba8ac7d_0_ba2991cbcb604ef5ac3841f1509ea6b5').
+
+# set_paths(r"C:\HFTRPA\chrome\chrome.exe")

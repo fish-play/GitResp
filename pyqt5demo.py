@@ -56,7 +56,9 @@ class InputdialogDemo(QWidget, UiForm):
         self.resize(600, 200)
         self.l = QLabel(self)
         self.t = QFormLayout()
-        self.l.setStyleSheet("background-color:rgb(197,246,249)")
+        # self.l.setStyleSheet("background-color:rgb(197,246,249)")
+        self.l.setPixmap(QPixmap('./photo/img.png').scaled(self.width(), self.height()))
+        # self.l.setStyleSheet(self.label)
 
         self.text1 = QPushButton("文书所在文件夹", self.l)
         self.text1.setFont(QFont("黑体", 10))

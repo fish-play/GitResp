@@ -14,7 +14,6 @@ def GetFirstChild(control):
 
 def GetNextSibling(control):
     return control.GetNextSiblingControl()
-x = re.search("贷款利率：(.*?)%", a).group(1)
 
 desktop = auto.GetRootControl()
 for control, depth in auto.WalkTree(desktop, getFirstChild=GetFirstChild, getNextSibling=GetNextSibling,
