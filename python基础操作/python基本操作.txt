@@ -78,6 +78,7 @@ for colum in columns:													# 循环读取列字段
     line1 = [col.value for col in colum]
     print(line1)
 print("-"*50)
+print("-"*50)
 print(ws['A1'].value, ws['B1'].value, ws['C1'].value)           		# 通过定位打印特定的位置字段
 
 ----------------------------------------------------------------------------------------------------------------------------------------------------------------
@@ -1844,3 +1845,88 @@ zhangpeng
 KsNgc1@q
 
 python语法糖
+
+
+
+sql语法
+——————————————————————————————————————————
+# like 模糊查询
+# 查找title列所有带有Toy Story的（%显示允许前后是否有字符）
+SELECT * FROM movies where title like "%Toy Story%";
+
+# order by （排序） DISTINCT （唯一值）注：DISTINCT后边跟列名，会显示该列名的唯一值，order by后边跟那个，就是对那列进行排序（ASC/DESC）
+SELECT DISTINCT Director FROM movies where ID ORDER BY Director ASC;
+
+# LIMIT 结束条数 OFFSET 开始条数
+SELECT * FROM movies where Year ORDER BY year DESC LIMIT 4;
+
+# 两表链接 （链接，左链接，右链接，全连接----INNER/LEFT/RIGHT/FULL JOIN），on后跟主键=外键
+SELECT DISTINCT Building_name , role FROM Buildings
+ left JOIN Employees
+ON Building = Building_name
+
+# 判断null出现（分为 is/is not  null）
+SELECT Name,role FROM employees
+left join Buildings
+on Building=Building_name
+where Building is null;
+
+# 对数据做运算
+SELECT  particle_speed / 2.0 AS half_particle_speed (对结果做了一个除2）
+FROM physics_data
+WHERE ABS(particle_position) * 10.0 >500
+            （条件要求这个属性绝对值乘以10大于500）;
+
+# 运算方法（COUNT（xxx）统计行数、MIN（xxx）找最小的一行、MAX（xxx）找最大的一行、AVG（xxx）取所有行的品均值、SUM（xxx）对所有行求和）group by 分组
+SELECT Building,COUNT(Building)  FROM employees
+where Building
+group by Building
+
+# HAVING(可在group by分组后继续添加查询条件)
+SELECT  sum(Years_employed) FROM employees
+where Name is not null
+group by role
+HAVING Role="Engineer"
+
+# COALESCE 替换为空的值为xxx
+SELECT teacher.name, COALESCE(teacher.mobile, '07986 444 2266') from teacher
+
+# 判断 case when...then...else...end(使用case开始，when后写成立条件，then返回，else和python的用法一样，end结尾)
+select name, case when dept=1 then "Sci" when dept=2 then "Sci" else "Art" end from teacher
+
+# left join 和 left outer join 其他同理
+同为左链接，left join 两表连接如果有不匹配的，用null替代，left outer join 会返回左表的所有记录，并可能包括右表中与左表记录相匹配的记录
+
+# and 和 or (同python and 和 or)
+select * from teacher
+where name = "jock" and dept = 1
+结合使用
+select * from teacher
+where name="jock" and (dept=1 or dept=2)
+
+# insert into(向表中插入数据)
+insert into teacher (name, title, count)
+values("张三", "教师", "5")
+或者不指定表头的
+insert into teacher
+values("张三", "教师", "5")
+
+# delete
+删除数据库中指定表的指定列
+delete from teacher
+where name = "title"
+删除数据库所有行
+delete from teacher
+
+-------------------------------------------------------------------------
+# scrapy 方法
+创建项目
+scrapy startproject 项目名称
+运行项目
+scrapy runspider 项目所在路径 -o douban.json("保存的文件格式支持csv,json,")
+如果不想看日志 scrapy runspider 项目所在路径 --nolog
+
+pipelines  这个文件是处理数据的管道
+如果想把数据写入excel，需要在pipelines中修改
+并且打开settings中的管道入口， ITEM_PIPELINES
+注：管道可以写多个尽量一个管道一个类

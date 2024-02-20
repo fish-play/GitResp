@@ -1,106 +1,281 @@
+a = {
+    "mode": 3,
+    "bean": "Lsfwpt_lasq_2020",
+    "opt": "insertLsfwptLasqClsc2020",
+    "data": {
+        "lasqid": "1225851",
+        "fybm1": "1326",
+        "qsclList_array": [{
+            "url": "5000-1eb520a16cf14fa9b5aa9bcdd8bf3f8c",
+            "nw_oss_url": "100324e940440671614107a9bcd2f9ec9d301a84",
+            "file_name": "营业执照.pdf",
+            "clfl": "10",
+            "clfl_mc": "当事人身份材料",
+            "clsm": "营业执照/统一信用社会代码证书",
+            "is_merge": "0",
+            "is_original": "1",
+            "clsx": "2",
+            "tjr_name": "张鹏",
+            "tjr_lx": "1",
+            "sort": "1",
+            "zzjgid": "1269764"
+        },
+            {
+                "url": "1000-6ebd9e38324641f6845517838f8ee2d5",
+                "nw_oss_url": "100324a28e6f6b1e9c4e76a9b61e23bbbcff9c26",
+                "file_name": "法定代表人身份证件.pdf",
+                "clfl": "10",
+                "clfl_mc": "当事人身份材料",
+                "clsm": "法定代表人身份证件",
+                "is_merge": "0",
+                "is_original": "1",
+                "clsx": "2",
+                "tjr_name": "张鹏",
+                "tjr_lx": "1",
+                "sort": "1",
+                "zzjgid": "1269764"
+            },
+            {
+                "url": "4000-111d8c2abecb4918b152f0897240de99",
+                "nw_oss_url": "100324d46238b0bb5f4a37a10035d4247124b286",
+                "file_name": "法定代表人身份证明书.pdf",
+                "clfl": "10", "clfl_mc": "当事人身份材料",
+                "clsm": "法定代表人身份证明书",
+                "is_merge": "0",
+                "is_original": "1",
+                "clsx": "2",
+                "tjr_name": "张鹏",
+                "tjr_lx": "1",
+                "sort": "1",
+                "zzjgid": "1269764"
+            },
+            {
+                "url": "2000-1ddac4ec70d148b38d00f6d562dce1a2",
+                "nw_oss_url": "1003243bb9ba940d2841359ac66c3e38d6072403",
+                "file_name": "被告身份证明.pdf",
+                "clfl": "10",
+                "clfl_mc": "当事人身份材料",
+                "clsm": "被告身份证明",
+                "is_merge": "0",
+                "is_original": "1",
+                "clsx": "2",
+                "tjr_name": "张鹏",
+                "tjr_lx": "1",
+                "sort": "1",
+                "zrrid": "1840528"
+            },
+            {
+                "url": "3000-05b2c413a89c466ea3ea023e0e11311b",
+                "nw_oss_url": "1003243ec08acf9e6944e480a78126f055d28c08",
+                "file_name": "被告身份证明.pdf",
+                "clfl": "10",
+                "clfl_mc": "当事人身份材料",
+                "clsm": "被告身份证明",
+                "is_merge": "0",
+                "is_original": "1",
+                "clsx": "2",
+                "tjr_name": "张鹏",
+                "tjr_lx": "1",
+                "sort": "1",
+                "zrrid": "1840529"
+            },
+            {
+                "url": "4000-162446e7ae3346c795ecccbfbd3069bb",
+                "nw_oss_url": "100324eef39f4888d2454591cc068279a5e9ae59",
+                "file_name": "授权委托书.pdf",
+                "clfl": "37",
+                "clfl_mc": "原告代理人材料",
+                "clsm": "授权委托书",
+                "is_merge": "0",
+                "is_original": "1",
+                "clsx": "2",
+                "tjr_name": "张鹏",
+                "tjr_lx": "1",
+                "sort": "1",
+                "dlrid": "1230733"
+            },
+            {
+                "url": "1000-07a413be912c4dc9b82420c30aa6a946",
+                "nw_oss_url": "100324801fa48f67e34bcfbbb26c19a0fa746271",
+                "file_name": "公函.pdf",
+                "clfl": "37",
+                "clfl_mc": "原告代理人材料",
+                "clsm": "公函",
+                "is_merge": "0",
+                "is_original": "1",
+                "clsx": "2",
+                "tjr_name": "张鹏",
+                "tjr_lx": "1",
+                "sort": "1",
+                "dlrid": "1230733"
+            },
+            {
+                "url": "2000-284998e991cb436a956cdf548d4f6451",
+                "nw_oss_url": "1003249cc3ec57463746e6bab025090f7c779f78",
+                "file_name": "1执业证.jpg",
+                "clfl": "37",
+                "clfl_mc": "原告代理人材料",
+                "clsm": "执业证",
+                "is_merge": "0",
+                "is_original": "1",
+                "clsx": "2",
+                "tjr_name": "张鹏",
+                "tjr_lx": "1",
+                "sort": "1",
+                "dlrid": "1230733"
+            },
+            {
+                "url": "3000-c66b4009e6e648f68be1784dc99ef6c0",
+                "nw_oss_url": "10032457b936d56f504adbb3550b6953b3833d93",
+                "file_name": "授权委托书.pdf",
+                "clfl": "37",
+                "clfl_mc": "原告代理人材料",
+                "clsm": "授权委托书",
+                "is_merge": "0",
+                "is_original": "1",
+                "clsx": "2",
+                "tjr_name": "张鹏",
+                "tjr_lx": "1",
+                "sort": "1",
+                "dlrid": "1230737"
+            },
+            {
+                "url": "2000-e733cd3efff84995997a5e3688291b8e",
+                "nw_oss_url": "1003249d524fe469f54185b6ea4c3275b9265979",
+                "file_name": "公函.pdf", "clfl": "37", "clfl_mc": "原告代理人材料", "clsm": "公函", "is_merge": "0",
+                "is_original": "1", "clsx": "2", "tjr_name": "张鹏", "tjr_lx": "1", "sort": "1", "dlrid": "1230737"},
+            {"url": "1000-a8c6540b2006465f80843209296c73a2", "nw_oss_url": "10032468b0fee002b14b72828ab21c3367c51d91",
+             "file_name": "2执业证.jpg", "clfl": "37", "clfl_mc": "原告代理人材料", "clsm": "执业证", "is_merge": "0",
+             "is_original": "1", "clsx": "2", "tjr_name": "张鹏", "tjr_lx": "1", "sort": "1", "dlrid": "1230737"},
+            {"url": "4000-ee999fc672d44d848fe3339e8c7d10ce", "nw_oss_url": "1003243e241a7ebf6643699019acf05f98523f43",
+             "file_name": "证据1（借款合同）.pdf", "clfl": "3", "clfl_mc": "证据材料", "clsm": "借款合同-1",
+             "is_merge": "0",
+             "is_original": "1", "clsx": "1", "tjr_name": "张鹏", "tjr_lx": "1", "clys": "13", "sort": "1",
+             "prove_purpose": "原告向被告借款，就原、被告双方的权利义务、最高贷款限额、被告履行债务的期限和计息方式等做了详细约定。"},
+            {"url": "3000-ccd62490d00b4106a6df1df0836be3b3", "nw_oss_url": "100324bb61a295c8c142feb2401ea1d26c3e3273",
+             "file_name": "证据1（借款合同）.pdf", "clfl": "3", "clfl_mc": "证据材料", "clsm": "借款合同-2",
+             "is_merge": "0",
+             "is_original": "1", "clsx": "1", "tjr_name": "张鹏", "tjr_lx": "1", "clys": "13", "sort": "1",
+             "prove_purpose": "原告向被告借款，就原、被告双方的权利义务、最高贷款限额、被告履行债务的期限和计息方式等做了详细约定。"},
+            {"url": "1000-024e2a77a3664ca2aed29727caebf734", "nw_oss_url": "100324fa80487ae58242a2a33097117576f23c13",
+             "file_name": "证据2（借款借据）.pdf", "clfl": "3", "clfl_mc": "证据材料", "clsm": "借款借据-1",
+             "is_merge": "0",
+             "is_original": "1", "clsx": "1", "tjr_name": "张鹏", "tjr_lx": "1", "clys": "3", "sort": "2",
+             "prove_purpose": "被告的用款事实。"},
+            {"url": "4000-87cf7dc50e9f411cb827609bf0450a37", "nw_oss_url": "1003245c9ea833de3049f3b0d27b8d29a70efb18",
+             "file_name": "证据2（借款借据）.pdf", "clfl": "3", "clfl_mc": "证据材料", "clsm": "借款借据-2",
+             "is_merge": "0",
+             "is_original": "1", "clsx": "1", "tjr_name": "张鹏", "tjr_lx": "1", "clys": "3", "sort": "2",
+             "prove_purpose": "被告的用款事实。"},
+            {"url": "3000-337339193dd9420e83991a029f8cdbb1", "nw_oss_url": "100324646675a6eef64c0e83c426cf008b6fde13",
+             "file_name": "证据3（利息清单）.pdf", "clfl": "3", "clfl_mc": "证据材料", "clsm": "利息清单-1",
+             "is_merge": "0",
+             "is_original": "1", "clsx": "1", "tjr_name": "张鹏", "tjr_lx": "1", "clys": "3", "sort": "3",
+             "prove_purpose": "被告的利息计算方式。"},
+            {"url": "5000-7a308d88904a43488ac73bc468d30c97", "nw_oss_url": "1003242c6d5d89f7604f8b8e2d0ef2c6c56a9973",
+             "file_name": "证据3（利息清单）.pdf", "clfl": "3", "clfl_mc": "证据材料", "clsm": "利息清单-2",
+             "is_merge": "0",
+             "is_original": "1", "clsx": "1", "tjr_name": "张鹏", "tjr_lx": "1", "clys": "3", "sort": "3",
+             "prove_purpose": "被告的利息计算方式。"},
+            {"url": "3000-afee3dde9a5e4075a32ea26fe08f5a20", "nw_oss_url": "1003249c312d0e80b949b18b892a9f43c0788206",
+             "file_name": "证据4（流水清单）.pdf", "clfl": "3", "clfl_mc": "证据材料", "clsm": "流水清单-1",
+             "is_merge": "0",
+             "is_original": "1", "clsx": "1", "tjr_name": "张鹏", "tjr_lx": "1", "clys": "1", "sort": "4",
+             "prove_purpose": "被告的尚欠贷款本息金额。"},
+            {"url": "3000-1ca00c6ac0794a89bc1aa00462f04c62", "nw_oss_url": "1003241a07f14d782345d78387678ad147c38a89",
+             "file_name": "证据4（流水清单）.pdf", "clfl": "3", "clfl_mc": "证据材料", "clsm": "流水清单-2",
+             "is_merge": "0",
+             "is_original": "1", "clsx": "1", "tjr_name": "张鹏", "tjr_lx": "1", "clys": "1", "sort": "4",
+             "prove_purpose": "被告的尚欠贷款本息金额。"}],
+        "xtbh": "1",
+        "ssbq_json": {"sqr": "",
+                      "sqr_zjhm": "",
 
-# ''' selenium 公司封装用法'''
-# # import time
-# #
-# # from rpalib import browser
-# # try:
-# #     b = browser.create_chrome()
-# #     b.load(r"https://www.baidu.com")
-# #     b.clear_input(r'//*[@id="kw"]', '中国法院执行信息公开网查询')
-# #     time.sleep(3)
-# #     b.click(r'//*[@id="su"]')
-# #     time.sleep(3)
-# #     b.click(r'//*[@id="1"]/h3/a[1]')
-# #     time.sleep(4)
-# #     b.switch_to_window_by_title(title='中国执行信息公开网')
-# #     b.click(r'//*[@id="cccz"]/div[1]')
-# #     b.click(r'//*[@id="myDiv1"]/a[1]/div')
-# #     b.switch_to_window_by_title(title='询价评估')
-# #     b.click(r'//*[@id="table1"]/tbody/tr[1]/td/a')
-# #     b.switch_to_window_by_title(title='司法拍卖-京东拍卖')
-# #     b.click(r'//*[@id="Underway"]/div/div[2]/div[1]/div[1]/div[3]/ul/li[1]/a/div[1]/div[1]')
-# #     print('ok')
-# # except:
-# #         pass
-#
-#
-#
-#
-# ''' selenium 基础用法'''
-# import time
-# from selenium import webdriver
-# from selenium.webdriver.common.by import By
-#
-# driver = webdriver.Chrome('chromedriver.exe')
-# driver.maximize_window()
-# driver.get("https://www.baidu,com/")
-# # driver.get("http://www.jrskan.com/")
-# # time.sleep(5)
-# # print(driver.switch_to.alert.text)  # 获取弹窗的文本信息
-# # driver.switch_to.alert.accept()  # 点击弹窗确定
-# # driver.switch_to.alert.dismiss()  # 点击弹窗取消
-# # driver.switch_to.alert.send_keys('xxxx')  # 向弹窗中输入信息
-#
-# driver.maximize_window()
-# driver.find_element(By.XPATH, '//*[@id="kw"]').send_keys("中国法院执行信息公开网查询")
-# time.sleep(3)
-# driver.find_element(By.XPATH, '//*[@id="su"]').click()
-# time.sleep(3)
-# driver.find_element(By.XPATH, '//*[@id="1"]/h3/a[1]').click()
-# time.sleep(4)
-# driver.switch_to.window(driver.window_handles[1])
-#
-# driver.find_element(By.XPATH, '/html/body/div/div[2]/div[2]/a[1]/div').click()
-#
-#
-#
-#
-# ''' selenium 控制滚动条下滑'''
-# from selenium import webdriver
-#
-# browser = webdriver.Chrome()
-# browser.get('https://www.zhihu.com/explore')
-# browser.execute_script('window.scrollTo(0, 2000)')  # 控制滚动条到具体的位置
-#
-#
-# from selenium import webdriver
-# from selenium.webdriver import ActionChains
-#
-# browser = webdriver.Chrome()
-# url = 'https://www.zhihu.com/explore'
-# browser.get(url)
-# logo = browser.find_elements_by_xpath('//*[@id="guestSquare"]/div[2]/div/div[2]/div[2]/div/div/div[1]/a')
-# for i in logo:
-#     print(i.text)
-# print(logo.get_attribute('class'))
-#
-#
-#
-import os
-path = r'\\172.29.9.15\技术部专用\rpa测试样例\39-律师平台立案支持一个案号推多个被告\样例\被告资料\白立立350500198309022552'
-# xx = r'\\172.29.9.15\技术部专用\rpa测试样例\39-律师平台立案支持一个案号推多个被告\样例\被告资料\白立立350500198309022552'
-# # print(os.path.join(path, '白立立-350500198309022552-起诉状0001-1.jpg'))
-# a = os.path.join(path, '白立立-350500198309022552-起诉状.jpg')
-# print(os.path.exists(a))
+                      "sqr_dbrzjhm": "",
+                      "sqr_lx": "",
+                      "bsqr": "",
+                      "bsqr_zjhm": "",
+                      "bsqr_dbrzjhm": "",
+                      "bsqr_lx": "",
+                      "ccxs": "",
+                      "fybm1": "1326",
+                      "fymc": "宁波市鄞州区人民法院",
+                      "bqsx": "",
+                      "lynr": "",
+                      "bqfdf": "1",
+                      "bqfdf_mc": "当事人申请",
+                      "zt": "1",
+                      "zt_mc": "已提交",
+                      "xtbh": "1",
+                      "lasqid": "1225851",
+                      "sfsqssbq": "2"
+                      }}}
 
-for i in os.listdir(r'\\172.29.9.15\技术部专用\rpa测试样例\39-律师平台立案支持一个案号推多个被告\样例\被告资料\白立立350500198309022552'):
-    # print(i)
+sss = {'营业执照': {'wwstbt': '5000-780726f4bce044a18b6530187ca5475a',
+                    'nwstbh': '1003247215a8f3ac514c0c804d319aacb846d751'},
+       '法定代表人身份证件': {'wwstbt': '2000-2fec95c03955467ea865728571549b83',
+                              'nwstbh': '100324c18f9c9a51a647e0ad93e4b8df4c47b306'},
+       '法定代表人身份证明书': {'wwstbt': '4000-e4b76a5a92fa4041932dec56be43c40d',
+                                'nwstbh': '100324a875f0903a834be1b757330537a2f5a039'},
+       '授权委托书1': {'wwstbt': '2000-8c347d02f67e48469840e61f04594ab4',
+                       'nwstbh': '100324b4262bce7f8d4c29abd721fc270f264294'},
+       '公函1': {'wwstbt': '3000-65e3c07927ca42aa813f2c906efc6c6b',
+                 'nwstbh': '100324c9571621510641cba5edb1415a21f94896'},
+       '执业证1': {'wwstbt': '3000-b06a7d7e0662498f94966a6bf2574d8b',
+                   'nwstbh': '100324c0705c345ddd495fa698c2a5e17c670862'},
+       '授权委托书2': {'wwstbt': '3000-532a67e63d254897a62620557d4eff11',
+                       'nwstbh': '10032498cf9a9aa0b34f61aecc58e17274ca0f79'},
+       '公函2': {'wwstbt': '4000-0f2cd0cb3fcf4bc1ba472cf292b11d80',
+                 'nwstbh': '100324af10fc08bddd4c68ad02cb934637d84704'},
+       '执业证2': {'wwstbt': '4000-d9b57dd4f20b481d89aa714a652e3f83',
+                   'nwstbh': '1003247fc21d1ff681407b804bd871faf0a45a40'},
+       '被告330282199104099192身份证明': {'wwstbt': '2000-692ff9fd4fbd43ceae88cba8a905b662',
+                                          'nwstbh': '100324c46c1c600af44d9386b95f607585869433'},
+       '被告330282199104099192证据1': {'wwstbt': '5000-37052bd34be648e6a441e621368987e4',
+                                       'nwstbh': '10032466a7530d064448f2989d1a511db3796411'},
+       '被告330282199104099192证据2': {'wwstbt': '4000-a231d98cc34c428a83bd8fb7699a53cc',
+                                       'nwstbh': '100324cbdd2e0e5a7042a788832cee59e9c0b131'},
+       '被告330282199104099192证据3': {'wwstbt': '5000-6d606e2691d64157ba65f7b53aa98afb',
+                                       'nwstbh': '100324245c160655cf4913b0328e0245fe5be482'},
+       '被告330282199104099192证据4': {'wwstbt': '5000-7eea0547a2324c68b68a6cd8f78c5a4e',
+                                       'nwstbh': '1003241a0d17c0fda34b1eb7ab606f8027bb4d39'},
+       '被告331082199004274256身份证明': {'wwstbt': '1000-04cca72dacaf485399bf987d569c0aa4',
+                                          'nwstbh': '100324f48febb801ca4b21a6a497af0e1c19e417'},
+       '被告331082199004274256证据1': {'wwstbt': '2000-943bfbb863d54500a695ce5802e70a36',
+                                       'nwstbh': '100324f62caac09327450a900b1bd72493f2aa24'},
+       '被告331082199004274256证据2': {'wwstbt': '3000-3bb1664b50dc4a8f9bf9f90b7f1c66a2',
+                                       'nwstbh': '1003247ff4b2ac57874eb29112993bd7924c9b33'},
+       '被告331082199004274256证据3': {'wwstbt': '5000-7be18871d1db4a9aa00c15af5738c9ba',
+                                       'nwstbh': '100324af46be4e90f342b4840a51edc2ed92a644'},
+       '被告331082199004274256证据4': {'wwstbt': '3000-54f76a9e82ca458da7071a4f2010e647',
+                                       'nwstbh': '1003240a4a6f99d37e4d678a8fedd0e900d91366'}}
 
-    if i.find("pdf") != -1:
-        continue
-    elif '起诉状' in i:
-        print(i)
-        # ps = os.path.join(path, i)
-        # print(path)
-        # print(os.path.exists(path))
+ss = {'被申请人330282199104099192id': '1840809', '被申请人331082199004274256id': '1840810'}
+sss.update(ss)
+# print(sss)
 
 
-# lj = self.main_path + '被告资料' + f'{self.snap[1].get("bgxm")}{self.snap[1].get("bgid")}'
-#         for i in os.listdir(lj):
-#             if i.find("pdf") != -1:
-#                 continue
-#             elif '起诉状' in i:
-#                 path = os.path.join(self.main_path, "被告资料", f'{self.snap[1].get("bgxm")}{self.snap[1].get("bgid")}', i)
-#                 self.upload(path, payload)
+
+bb = {}
+aa = {}
+for i in sss:
+    if "330282199104099192" in i:
+        aa[i] = sss[i]
+bb["330282199104099192"] = aa
+print(bb)
+
+# aa["330282199104099192"] = sss['被告330282199104099192身份证明']
 
 
+
+# s = {"330282199104099192": {'被申请人330282199104099192id': '1840809',
+#                             '被告330282199104099192身份证明': {'wwstbt': '2000-692ff9fd4fbd43ceae88cba8a905b662',
+#                                                                'nwstbh': '100324c46c1c600af44d9386b95f607585869433'},
+#                             '被告330282199104099192证据1': {'wwstbt': '5000-37052bd34be648e6a441e621368987e4',
+#                                                             'nwstbh': '10032466a7530d064448f2989d1a511db3796411'},
+#                             '被告330282199104099192证据2': {'wwstbt': '4000-a231d98cc34c428a83bd8fb7699a53cc',
+#                                                             'nwstbh': '100324cbdd2e0e5a7042a788832cee59e9c0b131'},
+#                             '被告330282199104099192证据3': {'wwstbt': '5000-6d606e2691d64157ba65f7b53aa98afb',
+#                                                             'nwstbh': '100324245c160655cf4913b0328e0245fe5be482'},
+#                             '被告330282199104099192证据4': {'wwstbt': '5000-7eea0547a2324c68b68a6cd8f78c5a4e',
+#                                                             'nwstbh': '1003241a0d17c0fda34b1eb7ab606f8027bb4d39'}}}

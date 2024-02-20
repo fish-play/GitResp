@@ -682,11 +682,11 @@ APP、微信公众号等方式送达的，则贷款人或争议解决机构系�
 
 
 '''
-import re
-
-a = re.search('第十七条适用法律与争议解决.*17\.2(.*)17\.3', txt.replace("\n", "")).group(1)
-
-print(a)
+# import re
+#
+# a = re.search('第十七条适用法律与争议解决.*17\.2(.*)17\.3', txt.replace("\n", "")).group(1)
+#
+# print(a)
 
 
 # # x为一个整数
@@ -713,8 +713,96 @@ print(a)
 #
 # # ---------------------------------------------
 # print('测试结果', randomNumVaccinePersonTotal(40, 6))
-import math
+# import math
+#
+# num = 3.0000000001# 将要处理的数
+# result = math.ceil(num * 10)/10 #向上取整，并保留一位小数
+# print('处理后的结果为:', format(result, '.1f'))
+# a = "23"
+#
+# num = 3.0000000001# 将要处理的数
+# result = math.ceil(num * 10)/10 #向上取整，并保留一位小数
+# print('处理后的结果为:',format(result,'.1f'))
 
-num = 3.0000000001# 将要处理的数
-result = math.ceil(num * 10)/10 #向上取整，并保留一位小数
-print('处理后的结果为:',format(result,'.1f'))
+
+# 定义函数test_del_list_append_loop_reference_cycle()
+
+
+# def fun(a, b, c):
+#     return a+b+c
+# test = [1, 2, 3]
+# print(fun(*test))
+#
+#
+# def fun(c, b, a):#注意顺序
+#     return a == 1 and b == 2 and c == 3
+# test = {'a':1, 'b':2, 'c':3}
+# print(fun(**test))
+# print(fun(*test))
+# #
+#
+# def foobar(param1=None, param4=None):
+#     return "{}{}".format(param4, param1)
+# values = {"param1": "foo", "param4": "bar"}
+# print(foobar(*values))
+
+# numbers = [1, 2, 3, 4, 5, 6]
+# # The left side of unpacking should be list or tuple.
+# *a, = numbers  # 直接写成*a会提示语法错误
+# # print(a)  ## a = [1, 2, 3, 4, 5, 6]
+# #
+# a, *b, c = numbers
+# print(a)  # a = [1, 2, 3, 4, 5]
+# print(b)  # b = 6
+# print(c)
+# #
+# a, *b, = numbers
+# print(a)  # a = 1
+# print(b)  # b = [2, 3, 4, 5, 6]
+#
+# a, *b, c = numbers
+# print(a)  # a = 1
+# print(b)  # b = [2, 3, 4, 5]
+# print(c)  # c = 6
+#
+# str1 = 'python'
+# s1, *s2, s3 = str1
+# print(s1)  # p
+# print(s2)  # ['y', 't', 'h', 'o']
+# print(s3)  # n
+#
+# t = ('a', 'b', 'c', 'd', 'e')
+# t1, *t2, t3 = t
+# print(t1)  # a
+# print(t2)  # ['b', 'c', 'd']
+# print(t3)
+
+# a = [1, 2, 3]
+# b = (4, 5, 6)
+# c = {7, 8, 9}
+# #  [1, 2, 3, 4, 5, 6, 7, 8, 9]
+# print([*a, *b, *c])
+
+# D = {'first': 1, 'second': 2, 'third': 3}
+#
+# print(*D)
+#
+# print('{first},{second},{third}'.format(**D))
+#
+# def log_args_and_kwargs(func):
+#
+#     def wrapper(*args, **kwargs):
+#         print("Arguments:", args)
+#         print("Keyword arguments:", kwargs)
+#         return func(*args, **kwargs)
+#
+#     return wrapper
+#
+#
+# @log_args_and_kwargs
+# def calculate_sum(a, b):
+#     return a + b
+#
+#
+# result = calculate_sum(3, 5)
+# print(result)

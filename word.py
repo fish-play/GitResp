@@ -1,16 +1,4 @@
-# import docx
-# from docx import Document
-#
-# doc_file = r"C:\Users\9000\Desktop\1-阿不都外力·尼亚孜-650105197706131310-补充保全申请书.docx"
-# document = Document(doc_file)
-# # tables = document.tables  # 有表格的
-# # print(tables)
-# a = str(len(document.paragraphs))   # 获取段落数
-# # for oara in document.paragraphs:    # 获取每一段的内容
-# #     print(oara.text)
-#
-# for i in range(len(document.paragraphs)):    # 获取第i段的文本内容
-#     print("第"+str(i)+"段的内容是："+document.paragraphs[i].text)
+
 
 
 '''替换word文档图片'''

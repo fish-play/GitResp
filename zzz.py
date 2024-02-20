@@ -29,7 +29,6 @@ class StartWin(QMainWindow):
     def set_ui(self):
         pass
 
-
     def _control(self):
         self.resize(1300,700)
         self.label1 = QLabel(self)

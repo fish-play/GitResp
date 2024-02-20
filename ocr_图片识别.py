@@ -3,6 +3,7 @@ import ddddocr
 ocr = ddddocr.DdddOcr()
 with open(r"C:\Users\9000\Desktop\7-8北京银行流水1_00.jpg", 'rb')as f:
     img_bytes = f.read()
+    print(img_bytes)
 res = ocr.classification(img_bytes)
 print(res)
 #

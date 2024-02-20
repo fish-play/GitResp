@@ -1,9 +1,68 @@
-2023-10-09 09:38:17,850 - ERROR - Uncaught exception
+2023-12-18 10:28:58,731 - ERROR - Uncaught exception
 Traceback (most recent call last):
-  File "D:\GitResp\pyqt5demo.py", line 178, in <module>
+  File "D:\GitResp\pyqt5demo.py", line 177, in <module>
     demo = InputdialogDemo()
   File "D:\GitResp\pyqt5demo.py", line 49, in __init__
     self.set_photo()
-  File "D:\GitResp\pyqt5demo.py", line 62, in set_photo
-    self.l.setStyleSheet(self.label)
-TypeError: setStyleSheet(self, str): argument 1 has unexpected type 'QLabel'
+  File "D:\GitResp\pyqt5demo.py", line 78, in set_photo
+    for i in printers:
+NameError: name 'printers' is not defined
+2023-12-18 10:41:28,397 - ERROR - Uncaught exception
+Traceback (most recent call last):
+  File "D:\GitResp\pyqt5demo.py", line 139, in on_button_clicked
+    self.pdf_docx(file1, file2)
+  File "D:\GitResp\pyqt5demo.py", line 159, in pdf_docx
+    pdf_reader = PyPDF2.PdfFileReader(pdf_file)
+  File "C:\Users\9000\Anaconda3\envs\cc\lib\site-packages\PyPDF2\_reader.py", line 1974, in __init__
+    deprecation_with_replacement("PdfFileReader", "PdfReader", "3.0.0")
+  File "C:\Users\9000\Anaconda3\envs\cc\lib\site-packages\PyPDF2\_utils.py", line 369, in deprecation_with_replacement
+    deprecation(DEPR_MSG_HAPPENED.format(old_name, removed_in, new_name))
+  File "C:\Users\9000\Anaconda3\envs\cc\lib\site-packages\PyPDF2\_utils.py", line 351, in deprecation
+    raise DeprecationError(msg)
+PyPDF2.errors.DeprecationError: PdfFileReader is deprecated and was removed in PyPDF2 3.0.0. Use PdfReader instead.
+2023-12-18 10:42:14,863 - ERROR - Uncaught exception
+Traceback (most recent call last):
+  File "D:\GitResp\pyqt5demo.py", line 139, in on_button_clicked
+    self.pdf_docx(file1, file2)
+  File "D:\GitResp\pyqt5demo.py", line 161, in pdf_docx
+    for page_num in range(pdf_reader.numPages):
+  File "C:\Users\9000\Anaconda3\envs\cc\lib\site-packages\PyPDF2\_reader.py", line 467, in numPages
+    deprecation_with_replacement("reader.numPages", "len(reader.pages)", "3.0.0")
+  File "C:\Users\9000\Anaconda3\envs\cc\lib\site-packages\PyPDF2\_utils.py", line 369, in deprecation_with_replacement
+    deprecation(DEPR_MSG_HAPPENED.format(old_name, removed_in, new_name))
+  File "C:\Users\9000\Anaconda3\envs\cc\lib\site-packages\PyPDF2\_utils.py", line 351, in deprecation
+    raise DeprecationError(msg)
+PyPDF2.errors.DeprecationError: reader.numPages is deprecated and was removed in PyPDF2 3.0.0. Use len(reader.pages) instead.
+2023-12-18 10:43:23,736 - ERROR - Uncaught exception
+Traceback (most recent call last):
+  File "D:\GitResp\pyqt5demo.py", line 139, in on_button_clicked
+    self.pdf_docx(file1, file2)
+  File "D:\GitResp\pyqt5demo.py", line 162, in pdf_docx
+    page = pdf_reader.getPage(page_num)
+  File "C:\Users\9000\Anaconda3\envs\cc\lib\site-packages\PyPDF2\_reader.py", line 476, in getPage
+    deprecation_with_replacement(
+  File "C:\Users\9000\Anaconda3\envs\cc\lib\site-packages\PyPDF2\_utils.py", line 369, in deprecation_with_replacement
+    deprecation(DEPR_MSG_HAPPENED.format(old_name, removed_in, new_name))
+  File "C:\Users\9000\Anaconda3\envs\cc\lib\site-packages\PyPDF2\_utils.py", line 351, in deprecation
+    raise DeprecationError(msg)
+PyPDF2.errors.DeprecationError: reader.getPage(pageNumber) is deprecated and was removed in PyPDF2 3.0.0. Use reader.pages[page_number] instead.
+2023-12-18 10:44:13,352 - ERROR - Uncaught exception
+Traceback (most recent call last):
+  File "D:\GitResp\pyqt5demo.py", line 139, in on_button_clicked
+    self.pdf_docx(file1, file2)
+  File "D:\GitResp\pyqt5demo.py", line 163, in pdf_docx
+    text = page.extractText()
+  File "C:\Users\9000\Anaconda3\envs\cc\lib\site-packages\PyPDF2\_page.py", line 1899, in extractText
+    deprecation_with_replacement("extractText", "extract_text", "3.0.0")
+  File "C:\Users\9000\Anaconda3\envs\cc\lib\site-packages\PyPDF2\_utils.py", line 369, in deprecation_with_replacement
+    deprecation(DEPR_MSG_HAPPENED.format(old_name, removed_in, new_name))
+  File "C:\Users\9000\Anaconda3\envs\cc\lib\site-packages\PyPDF2\_utils.py", line 351, in deprecation
+    raise DeprecationError(msg)
+PyPDF2.errors.DeprecationError: extractText is deprecated and was removed in PyPDF2 3.0.0. Use extract_text instead.
+2023-12-18 10:44:49,683 - ERROR - Uncaught exception
+Traceback (most recent call last):
+  File "D:\GitResp\pyqt5demo.py", line 139, in on_button_clicked
+    self.pdf_docx(file1, file2)
+  File "D:\GitResp\pyqt5demo.py", line 168, in pdf_docx
+    doc.close()
+AttributeError: 'Document' object has no attribute 'close'

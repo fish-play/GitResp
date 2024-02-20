@@ -1,5 +1,5 @@
-from PyQt5.QtGui import *
-from PyQt5.QtWidgets import *
+from PyQt5.QtGui import QPixmap, QFont
+from PyQt5.QtWidgets import QWidget, QLabel, QFormLayout, QPushButton, QLineEdit
 import os
 import fitz
 import time
@@ -7,12 +7,14 @@ import sys
 from log import logger
 import win32print
 import win32api
+import PyPDF2
+from docx import Document
 from PyQt5 import QtCore, QtGui, QtWidgets
 from PyQt5.QtWidgets import QApplication, QFileDialog
 
-printers = []
-for it in win32print.EnumPrinters(2):
-    printers.append(it[2])
+# printers = []
+# for it in win32print.EnumPrinters(2):
+#     printers.append(it[2])
     # print(printers)
 
 class UiForm(object):
@@ -74,10 +76,10 @@ class InputdialogDemo(QWidget, UiForm):
 
         self.text3 = QLabel("选择", self.l)
         self.text3.setFont(QFont("黑体", 10))
-        self.le3 = QComboBox()
-        for i in printers:
-            self.le3.addItem(i)
-        self.t.addRow(self.text3, self.le3)
+        # self.le3 = QComboBox()
+        # for i in printers:
+        #     self.le3.addItem(i)
+        # self.t.addRow(self.text3, self.le3)
 
         self.button1 = QPushButton("运行", self.l)
         self.button1.setFont(QFont("黑体", 10))
@@ -130,10 +132,11 @@ class InputdialogDemo(QWidget, UiForm):
         # 获取文本框里的值
         file1 = self.le1.text()
         file2 = self.le2.text()
-        file3 = self.le3.currentText()
+        # file3 = self.le3.currentText()
         print(file1)
         print(file2)
-        print(file3)
+        # print(file3)
+        self.pdf_docx(file1, file2)
         # self.pdf_split(file1, file2)
         # self.printer_loading(_dir_path=file1, save_path=file2, dyj_name=file3)
 
@@ -149,6 +152,22 @@ class InputdialogDemo(QWidget, UiForm):
         get_directory_path = QFileDialog.getExistingDirectory(self, "选取指定文件夹",
                                                               "C:/")
         self.le2.setText(str(get_directory_path))
+
+    def pdf_docx(self, file1, file2):
+        for i in os.listdir(file1):
+            pdf_file = open(os.path.join(file1, i), "rb")
+            pdf_reader = PyPDF2.PdfReader(pdf_file)
+            doc = Document()
+            for page_num in range(len(pdf_reader.pages)):
+                page = pdf_reader.pages[page_num]
+                text = page.extract_text()
+                doc.add_paragraph(text)
+            name = i.replace(".pdf", ".docx")
+            doc.save(os.path.join(file2, name))
+
+
+
+
 
     def pdf_split(self, file1, file2):
         """
