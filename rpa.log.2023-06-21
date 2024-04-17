@@ -1,0 +1,14 @@
+2023-06-21 09:06:24,488 - ERROR - Uncaught exception
+Traceback (most recent call last):
+  File "D:\GitResp\uiautomation.py", line 13, in <module>
+    import uiautomation as auto
+  File "D:\GitResp\uiautomation.py", line 26, in <module>
+    desktop = auto.GetRootControl()
+AttributeError: partially initialized module 'uiautomation' has no attribute 'GetRootControl' (most likely due to a circular import)
+2023-06-21 09:09:59,233 - ERROR - Uncaught exception
+Traceback (most recent call last):
+  File "D:\GitResp\uiautomation.py", line 13, in <module>
+    import uiautomation as auto
+  File "D:\GitResp\uiautomation.py", line 26, in <module>
+    desktop = auto.GetRootControl()
+AttributeError: partially initialized module 'uiautomation' has no attribute 'GetRootControl' (most likely due to a circular import)

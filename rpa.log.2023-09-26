@@ -1,0 +1,7 @@
+2023-09-26 14:47:37,155 - ERROR - Uncaught exception
+Traceback (most recent call last):
+  File "D:\GitResp\pyqt5demo.py", line 9, in <module>
+    import win32print
+ImportError: DLL load failed while importing win32print: 找不到指定的程序。
+2023-09-26 17:56:12,270 - INFO - C:/photo\area.png打印成功
+2023-09-26 17:56:14,455 - INFO - C:/photo\bgname.png打印成功

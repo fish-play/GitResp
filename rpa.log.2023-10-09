@@ -1,0 +1,9 @@
+2023-10-09 09:38:17,850 - ERROR - Uncaught exception
+Traceback (most recent call last):
+  File "D:\GitResp\pyqt5demo.py", line 178, in <module>
+    demo = InputdialogDemo()
+  File "D:\GitResp\pyqt5demo.py", line 49, in __init__
+    self.set_photo()
+  File "D:\GitResp\pyqt5demo.py", line 62, in set_photo
+    self.l.setStyleSheet(self.label)
+TypeError: setStyleSheet(self, str): argument 1 has unexpected type 'QLabel'
