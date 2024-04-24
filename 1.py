@@ -42,11 +42,20 @@
 # batch_convert_pdf_to_jpg(pdf_folder, jpg_folder)
 
 
-import math
+# import math
+#
+# # a = (2000-1811.18)/2
+# # print(a".2f")
+#
+# number = 998.769
+# rounded_number = math.floor(number * 100) / 100
+# print(rounded_number)
+# import china
+import cpca
+from cpca import drawer, transform
+import jionlp as jio
 
-# a = (2000-1811.18)/2
-# print(a".2f")
+print(transform([f"长春市宽城区奋进乡吾悦和府委3组"]))
+# print(jio.parse_location(f"长春市宽城区奋进乡吾悦和府委3组"))
 
-number = 998.769
-rounded_number = math.floor(number * 100) / 100
-print(rounded_number)
+
