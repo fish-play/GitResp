@@ -113,6 +113,7 @@ def get_payload(self, *, case_no, case_statu, case_type, year):
     }
     _data.update(_type[case_statu])
     return _data
+self.cookie = ';'.join([f'{i["name"]}={i["value"]}' for i in self.page.context.cookies(urls=self.page.url)])
 def get_fydm_ahdm(self, *, cookie, ah, case_status):
     url = 'http://142.2.248.240:8039/zxxt/webapp/ajgl/cxtj/getDzajGrid.do'
     nd, fy, lx, _ah = parse_ah(ah)
