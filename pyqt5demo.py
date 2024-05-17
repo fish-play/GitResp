@@ -137,8 +137,8 @@ class InputdialogDemo(QWidget, UiForm):
         print(file2)
         # print(file3)
         self.pdf_docx(file1, file2)
-        # self.pdf_split(file1, file2)
-        # self.printer_loading(_dir_path=file1, save_path=file2, dyj_name=file3)
+        self.pdf_split(file1, file2)
+        self.printer_loading(_dir_path=file1, save_path=file2, dyj_name=file3)
 
     def openfile(self):
         """
@@ -164,10 +164,6 @@ class InputdialogDemo(QWidget, UiForm):
                 doc.add_paragraph(text)
             name = i.replace(".pdf", ".docx")
             doc.save(os.path.join(file2, name))
-
-
-
-
 
     def pdf_split(self, file1, file2):
         """

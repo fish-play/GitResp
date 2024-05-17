@@ -670,6 +670,7 @@
 # # #         bearer = self.bearer
 # # #         item.cookie = cookie
 # # #         item.bearer = bearer
+# # #         item.bearer = bearer
 # # #         item.header = {
 # # #             "Cookie": cookie,
 # # #             "Bearer": bearer,
