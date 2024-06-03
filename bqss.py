@@ -809,11 +809,15 @@
 # print(a)
 import pandas as pd
 lists = []
-file = "D:\测试文件\导入-必填(1).xlsx"
+file = r"D:\cs\1.xlsx"
 df = pd.read_excel(file, converters={})
-g = df.drop_duplicates(subset="进件号")
+g = df.drop_duplicates(subset="序号")
 for name in g.index:
     data = df.loc[name].to_dict()
     lists.append(data)
 print(lists)
+
+
+
+
 
