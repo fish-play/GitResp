@@ -830,6 +830,25 @@ s = hashlib.sha256()
 s.update(input("请输入加密字符：").encode('utf8'))
 b = s.hexdigest()
 print(b)
+----------------------------------------------------------------------------------------------------------------------------------------------------------------
+
+注：
+''' urllib url链接加解密 '''
+from urllib import parse
+from urllib.parse import unquote, quote, urlencode
+
+print(unquote("加密的url"))  # 直接解码
+print(pares.pares_qs("加密的url"))  # 按字典格式解码返回
+print(quote("需要加密的url"))  # 讲url加密
+print(urlencode({"key": "value", "key1": "value1", "key2": "value2"}))  # 将字典加密成url的格式
+----------------------------------------------------------------------------------------------------------------------------------------------------------------
+
+注：  需要密钥
+''' AES加密 '''
+pip install pycryptodome
+
+from Crypto.Cipher import AES
+from Crypto.Random import get_random_bytes
 
 ----------------------------------------------------------------------------------------------------------------------------------------------------------------
 
@@ -1838,12 +1857,6 @@ docker安装mysql： docker run --name mysql-5.7 -p 3306:3306 -e MYSQL_ROOT_PASS
 
 https://zhuanlan.zhihu.com/p/352521419
 
-
-
-
-zhangpeng
-KsNgc1@q
-
 python语法糖
 
 
@@ -2006,3 +2019,186 @@ r'(python-venv) PS E:\rpa\保全> pyinstaller --add-data "libs/*;libs" flow.py'
 地址: https://pypi.douban.com/simple/
 中国教育科研计算机网CERNET:
 地址: https://pypi.mirrors.ustc.edu.cn/simple/
+
+
+#  git密钥
+"C:\Users\26639\.ssh\id_ed25519"
+
+---------------------------------------------------------
+# 读取pdf文件的两种方式
+
+import pdfplumber
+for i in os.listdir(self.pdf_path):
+    errmsg = []
+    result = []
+    if i.endswith('.pdf'):
+        with pdfplumber.open(os.path.join(self.pdf_path, i)) as pdf:
+            texts = ""
+            result.append(i)
+            for page in pdf.pages:
+                texts += page.extract_text()
+            print(texts)
+
+
+import fitz
+
+_ = os.listdir(self.pdf_path)
+for x in _:
+    result = []
+    errmsg = []
+    if x.endswith(".pdf"):
+        doc = fitz.open(os.path.join(self.pdf_path, x))
+        content = ""
+        for i in doc:
+            content += i.get_text()
+        print(content)
+
+----------------------------------------------------------------------------------
+AES加密方式
+
+import base64
+from Crypto.Cipher import AES
+
+
+# 需要补位，str不是16的倍数那就补足为16的倍数
+def add_to_16(value):
+    while len(value) % 16 != 0:
+        value += '\0'
+    return str.encode(value)
+
+
+# 加密方法
+def aes_encrypt(key, t, iv):
+    aes = AES.new(add_to_16(key), AES.MODE_CBC, add_to_16(iv))  # 初始化加密器
+    encrypt_aes = aes.encrypt(add_to_16(t))                    # 先进行 aes 加密
+    encrypted_text = str(base64.encodebytes(encrypt_aes), encoding='utf-8')  # 执行加密并转码返回 bytes
+    return encrypted_text
+
+
+# 解密方法
+def aes_decrypt(key, t, iv):
+    aes = AES.new(add_to_16(key), AES.MODE_CBC, add_to_16(iv))         # 初始化加密器
+    base64_decrypted = base64.decodebytes(t.encode(encoding='utf-8'))  # 优先逆向解密 base64 成 bytes
+    decrypted_text = str(aes.decrypt(base64_decrypted), encoding='utf-8').replace('\0', '')  # 执行解密密并转码返回str
+    return decrypted_text
+
+
+if __name__ == '__main__':
+    secret_key = 'qnbyzzwmdgghmcnm'   # 密钥
+    text = '999321!'   # 加密对象
+    iv = secret_key           # 初始向量
+    encrypted_str = aes_encrypt(secret_key, text, iv)
+    print('加密字符串：', encrypted_str)
+    decrypted_str = aes_decrypt(secret_key, encrypted_str, iv)
+    print('解密字符串：', decrypted_str)
+-------------------------------------------------------------------------------------
+DES 加密方式
+pip install pycryptodome
+from Crypto.Cipher import DES
+from secrets import token_bytes
+
+def pad(text):
+    # PKCS5 padding: add bytes of value `n` (the number of padding bytes)
+    n = 8 - len(text) % 8
+    return text + bytes([n] * n)
+
+def unpad(text):
+    # Remove the padding: last byte contains the number of padding bytes
+    n = text[-1]
+    return text[:-n]
+
+def des_encrypt(plaintext, key):
+    cipher = DES.new(key, DES.MODE_ECB)
+    padded_text = pad(plaintext.encode())  # Pad and encode the plaintext
+    encrypted_text = cipher.encrypt(padded_text)
+    return encrypted_text
+
+def des_decrypt(ciphertext, key):
+    cipher = DES.new(key, DES.MODE_ECB)
+    decrypted_padded_text = cipher.decrypt(ciphertext)
+    decrypted_text = unpad(decrypted_padded_text).decode()
+    return decrypted_text
+
+# 随机生成一个8字节（64位）的密钥
+key = token_bytes(8)
+
+# 要加密的明文
+plaintext = "Hello, World!"
+
+# 加密
+encrypted_text = des_encrypt(plaintext, key)
+print(f"密文: {encrypted_text}")
+
+# 解密
+decrypted_text = des_decrypt(encrypted_text, key)
+print(f"解密后的明文: {decrypted_text}")
+----------------------------------------------------------------------------------
+DES3加密
+注：和DES不同的是先用des加密，然后又解密，再加密
+
+from Crypto.Cipher import DES3
+from secrets import token_bytes
+
+def pad(text):
+    n = 8 - len(text) % 8
+    return text + bytes([n] * n)
+
+def unpad(text):
+    n = text[-1]
+    return text[:-n]
+
+def generate_3des_key():
+    while True:
+        key = token_bytes(24)
+        if DES3.adjust_key_parity(key):
+            return key
+
+def des3_encrypt(plaintext, key):
+    cipher = DES3.new(key, DES3.MODE_ECB)
+    padded_text = pad(plaintext.encode())
+    encrypted_text = cipher.encrypt(padded_text)
+    return encrypted_text
+
+def des3_decrypt(ciphertext, key):
+    cipher = DES3.new(key, DES3.MODE_ECB)
+    decrypted_padded_text = cipher.decrypt(ciphertext)
+    decrypted_text = unpad(decrypted_padded_text).decode()
+    return decrypted_text
+
+# 生成一个24字节（192位）的3DES密钥
+key = generate_3des_key()
+
+# 要加密的明文
+plaintext = "为啥还不发工资，要活不下去了!"
+
+# 加密
+encrypted_text = des3_encrypt(plaintext, key)
+print(f"密文: {encrypted_text}")
+
+# 解密
+decrypted_text = des3_decrypt(encrypted_text, key)
+print(f"解密后的明文: {decrypted_text}")
+
+----------------------------------------------------------------------------------------------
+HMAC加密
+
+import hmac
+import hashlib
+
+def generate_hmac(key, message):
+    # 创建一个HMAC对象，使用SHA-256哈希函数
+    hmac_obj = hmac.new(key.encode(), message.encode(), hashlib.sha256)
+    # 返回HMAC值
+    return hmac_obj.hexdigest()
+
+# 密钥
+key = "supersecretkey"
+
+# 要认证的消息
+message = "为啥还不发工资，要活不下去了!"
+
+# 生成HMAC
+hmac_value = generate_hmac(key, message)
+print(f"HMAC: {hmac_value}")
+
+

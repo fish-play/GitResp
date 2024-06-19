@@ -817,7 +817,86 @@ for name in g.index:
     lists.append(data)
 print(lists)
 
+    def encrypt(self, text):
+        """
+        传入明文
+        :param text:bytes类型，长度是KEY的倍数
+        :return:
+        """
+        if not isinstance(text, bytes):
+            text = bytes(text, 'utf-8')
+        x = len(text) % 8
+        text = text+b'\0'*x
+        cryptor = DES3.new(self.key, self.mode)
+        ciphertext = cryptor.encrypt(text)
+        return ciphertext
+
+    def decrypt(self, text):
+        cryptor = DES3.new(self.key, self.mode)
+        plain_text = cryptor.decrypt(text)
+        st = str(plain_text.decode("utf-8")).rstrip('\0')
+        return st
 
 
+def USE_MD5(test):
+    if not isinstance(test, bytes):
+        test = bytes(test, 'utf-8')
+    m = hashlib.md5()
+    m.update(test)
+    return m.hexdigest()
 
 
+def USE_HMAC(key, text):
+    if not isinstance(key, bytes):
+        key = bytes(key, 'utf-8')
+    if not isinstance(text, bytes):
+        text = bytes(text, 'utf-8')
+    h = hmac.new(key, text, digestmod='MD5')
+    return h.hexdigest()
+
+
+def USE_SHA(text):
+    if not isinstance(text, bytes):
+        text = bytes(text, 'utf-8')
+    sha = hashlib.sha1(text)
+    encrypts = sha.hexdigest()
+    return encrypts
+
+
+if __name__ == '__main__':
+    """AES加密"""
+    # 密钥
+    # key = "assssssssdfasasasasa"
+    # aes_test = USE_AES(key)
+    # a = aes_test.encrypt("测试")
+    # b = aes_test.decodebytes(a)
+    # print(a)
+    # print(b)
+    """RSA加密"""
+    # context = "加密内容"
+    # rsa_test = USE_RSA()
+    # a = rsa_test.rsaEncrypt(context)
+    # b = rsa_test.rsaDecrypt(a)
+    # print(a)
+    # print(b)
+    """DES加密"""
+    # des_test = USE_DES(b"12345678", b"12345678")
+    # des_test = USE_DES()
+    # a = des_test.encrypt("测试加密")
+    # b = des_test.descrypt(a)
+    # print(a)
+    # print(b)
+    """DES3加密"""
+    # des3_test = USE_DES3(b"123456789qazxswe")
+    # des3_test = USE_DES3()
+    # a = des3_test.encrypt("测试加密")
+    # b = des3_test.decrypt(a)
+    # print(a)
+    # print(b)
+    """MD5, hmac, sha加密"""
+    # md5_test = USE_MD5("测试签名")
+    # hmac_test = USE_HMAC("123456", "测试")
+    # sha_test = USE_SHA("测试加密")
+    # print(md5_test)
+    # print(hmac_test)
+    # print(sha_test)
