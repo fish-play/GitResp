@@ -2202,3 +2202,27 @@ hmac_value = generate_hmac(key, message)
 print(f"HMAC: {hmac_value}")
 
 
+---------------------------------------------------------------------------------------------------------------
+将自己封装的方法库安装进虚拟环境
+1、 先切入虚拟环境
+2、比如说封装的方法库是”function.py“，那么我们要建立一个文件夹，名称随便，但这个名称就是你打入虚拟环境的库的名称，然后把function放入这个文件夹中
+并在这个文件夹里建立一个setup.py并在里边写上：
+
+
+from setuptools import setup
+setup(
+    name='my_library',  # 文件夹名称
+    version='0.1',   # 版本号
+    py_modules=['function'],   # 封装的方法库
+    install_requires=[
+        # 列出依赖的包，例如：
+    ],
+    entry_points={
+        'console_scripts': [
+            # 如果有需要，可以在这里添加脚本入口点
+        ],
+    },
+)
+然后在终端输入 pip install -e .\创建的文件夹名称\
+
+
