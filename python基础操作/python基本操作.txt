@@ -1136,7 +1136,12 @@ import os
 from playwright.sync_api import Playwright, sync_playwright
 os.system('start cmd.exe /K C:\\HFTRPA\\chrome\\chrome.exe --remote-debugging-port=9200')
 
-
+import subprocess
+# 指定端口号
+chrome_path = "C:\\HFTRPA\\chrome\\chrome.exe"
+debugging_port = '9222'
+# 使用subprocess.run()启动Chrome并指定远程调试端口
+subprocess.run([chrome_path, f'--remote-debugging-port={debugging_port}'])
 
 
 with sync_playwright() as playwright:
